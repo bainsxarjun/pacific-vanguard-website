@@ -140,10 +140,6 @@
                     <button onclick="navigate('residential')" class="hover:text-gray-500 transition">Residential</button>
                     <button onclick="navigate('commercial')" class="hover:text-gray-500 transition">Commercial</button>
                     <button onclick="navigate('strata')" class="hover:text-gray-500 transition">Strata</button>
-                    <button onclick="navigate('ai')" class="text-brand-accent hover:text-black transition flex items-center gap-2">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                        AI Studio
-                    </button>
                     <button onclick="scrollToQuote()" class="bg-black text-white px-6 py-2 rounded-xl hover:bg-gray-800 transition">Free Quote</button>
                 </div>
                 
@@ -160,7 +156,6 @@
             <button onclick="navigate('residential')" class="block w-full text-left font-bold uppercase tracking-wider text-sm py-2">Residential</button>
             <button onclick="navigate('commercial')" class="block w-full text-left font-bold uppercase tracking-wider text-sm py-2">Commercial</button>
             <button onclick="navigate('strata')" class="block w-full text-left font-bold uppercase tracking-wider text-sm py-2">Strata</button>
-            <button onclick="navigate('ai')" class="block w-full text-left font-bold uppercase tracking-wider text-sm py-2 text-brand-accent">AI Studio</button>
         </div>
     </nav>
 
@@ -491,124 +486,6 @@
                                     <p class="text-xs text-gray-500 mt-1">Secure, tidy worksites that respect resident parking, safety, and walkways.</p>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- ========================================== -->
-        <!-- VIEW: AI STUDIO                            -->
-        <!-- ========================================== -->
-        <div id="view-ai" class="page-view">
-            
-            <!-- AI Vision Studio -->
-            <section class="py-24 bg-gray-100 border-b border-gray-200">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="text-center mb-12">
-                        <div class="inline-flex items-center justify-center space-x-2 bg-black text-white px-4 py-1 rounded-full mb-4">
-                            <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                            <span class="text-[10px] uppercase font-bold tracking-widest">Powered by Gemini AI</span>
-                        </div>
-                        <h2 class="text-4xl font-bold mb-4 uppercase tracking-tighter">Vanguard Vision™ Studio</h2>
-                        <p class="text-gray-500 max-w-2xl mx-auto leading-relaxed">Upload a photo of your current space and an inspiration image. Our AI will render a high-fidelity architectural concept combining the two in seconds.</p>
-                    </div>
-                    <div class="max-w-4xl mx-auto bg-white p-8 rounded-2xl border border-gray-200 shadow-xl">
-                        <div class="flex flex-col gap-6 mb-6">
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <!-- Current Space Upload -->
-                                <label for="current-upload" class="cursor-pointer flex flex-col items-center justify-center w-full p-6 border-2 border-dashed border-gray-300 bg-gray-50 hover:border-black transition relative overflow-hidden group rounded-xl">
-                                    <input type="file" id="current-upload" accept="image/*" class="hidden">
-                                    <div id="current-placeholder" class="text-center relative z-10 transition-opacity">
-                                        <svg class="w-6 h-6 mx-auto mb-2 text-gray-400 group-hover:text-black transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                        <span class="block text-xs uppercase font-bold tracking-widest text-gray-500 group-hover:text-black transition">1. Upload Current Space</span>
-                                        <span class="block text-[10px] text-gray-400 mt-1">Photo of the area to remodel</span>
-                                    </div>
-                                    <img id="current-preview" class="hidden absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-20 transition-opacity" alt="Current Space Preview">
-                                    <div id="current-overlay" class="hidden absolute inset-0 bg-black/5 flex items-center justify-center">
-                                        <span class="bg-white/90 px-3 py-1 text-[9px] font-bold tracking-widest uppercase border border-gray-200 shadow-sm text-black rounded-full">Current Space Set</span>
-                                    </div>
-                                </label>
-
-                                <!-- Reference Inspiration Upload -->
-                                <label for="reference-upload" class="cursor-pointer flex flex-col items-center justify-center w-full p-6 border-2 border-dashed border-gray-300 bg-gray-50 hover:border-black transition relative overflow-hidden group rounded-xl">
-                                    <input type="file" id="reference-upload" accept="image/*" class="hidden">
-                                    <div id="reference-placeholder" class="text-center relative z-10 transition-opacity">
-                                        <svg class="w-6 h-6 mx-auto mb-2 text-gray-400 group-hover:text-black transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                                        <span class="block text-xs uppercase font-bold tracking-widest text-gray-500 group-hover:text-black transition">2. Upload Inspiration</span>
-                                        <span class="block text-[10px] text-gray-400 mt-1">Photo of your desired aesthetic</span>
-                                    </div>
-                                    <img id="reference-preview" class="hidden absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-20 transition-opacity" alt="Reference Image Preview">
-                                    <div id="reference-overlay" class="hidden absolute inset-0 bg-black/5 flex items-center justify-center">
-                                        <span class="bg-white/90 px-3 py-1 text-[9px] font-bold tracking-widest uppercase border border-gray-200 shadow-sm text-black rounded-full">Inspiration Set</span>
-                                    </div>
-                                </label>
-                            </div>
-
-                            <div class="flex flex-col sm:flex-row gap-4">
-                                <input type="text" id="vision-prompt" class="flex-1 bg-gray-50 border border-gray-300 px-4 py-4 text-sm focus:outline-none focus:border-black transition rounded-xl" placeholder="Step 3: Explain the changes (e.g., Use the flooring from the inspiration photo...)">
-                                <button id="generate-vision" class="bg-black text-white px-8 py-4 font-bold uppercase tracking-widest text-xs hover:bg-gray-800 transition flex items-center justify-center min-w-[160px] rounded-xl">
-                                    Render Concept
-                                </button>
-                            </div>
-                        </div>
-                        <div id="vision-result" class="w-full aspect-video bg-gray-200 flex items-center justify-center border border-gray-300 overflow-hidden relative shadow-inner rounded-xl">
-                            <span id="vision-placeholder" class="text-gray-400 text-sm uppercase tracking-widest font-semibold text-center px-4">Your architectural concept will appear here</span>
-                            <div id="vision-loader" class="hidden absolute inset-0 bg-black/80 flex flex-col items-center justify-center text-white z-10">
-                                <div class="w-10 h-10 border-4 border-white border-t-transparent rounded-full animate-spin mb-4"></div>
-                                <span class="text-xs uppercase tracking-widest font-bold">Rendering Vanguard Concept...</span>
-                            </div>
-                            <img id="vision-image" class="hidden w-full h-full object-cover transition-opacity duration-500" alt="AI Generated Concept">
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- AI Chat Consultant -->
-            <section class="py-24 bg-white min-h-screen">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row gap-12 items-start mt-8">
-                    <div class="lg:w-1/3 lg:sticky lg:top-32">
-                        <div class="inline-flex items-center justify-center space-x-2 bg-black text-white px-4 py-1 rounded-full mb-6">
-                            <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                            <span class="text-[10px] uppercase font-bold tracking-widest">System Online</span>
-                        </div>
-                        <h2 class="text-4xl font-bold mb-6 text-black uppercase tracking-tighter">Consult the Vanguard AI</h2>
-                        <p class="text-gray-600 mb-6 leading-relaxed">
-                            Have questions about BC building codes, our WorkSafeBC compliance, or what to expect during a major commercial build-out? 
-                        </p>
-                        <p class="text-gray-600 mb-8 leading-relaxed">
-                            Speak directly with our AI-powered Project Management Assistant. Trained on our institutional standards, it provides immediate, no-nonsense answers.
-                        </p>
-                        <ul class="space-y-3 mb-8">
-                            <li class="flex items-center text-sm text-gray-500 font-semibold uppercase tracking-wider"><span class="text-black mr-2">■</span> Ask about our strata process</li>
-                            <li class="flex items-center text-sm text-gray-500 font-semibold uppercase tracking-wider"><span class="text-black mr-2">■</span> Material recommendations</li>
-                            <li class="flex items-center text-sm text-gray-500 font-semibold uppercase tracking-wider"><span class="text-black mr-2">■</span> Standard project timelines</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="lg:w-2/3 w-full bg-[#111] rounded-2xl shadow-2xl border border-gray-800 overflow-hidden flex flex-col h-[700px]">
-                        <div class="bg-black p-6 border-b border-gray-800 flex justify-between items-center">
-                            <div class="flex items-center gap-3">
-                                <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                                <span class="text-white font-bold tracking-widest uppercase">Vanguard Terminal</span>
-                            </div>
-                            <span class="text-xs text-gray-600 font-mono">v2.0.4</span>
-                        </div>
-                        
-                        <div id="chat-history" class="chat-container flex-1 p-6 space-y-6 text-sm bg-[#1a1a1a]">
-                            <div class="flex flex-col items-start">
-                                <span class="text-[10px] text-gray-500 font-bold mb-1 uppercase tracking-widest">Vanguard AI</span>
-                                <div class="bg-gray-800 text-gray-200 px-5 py-4 rounded-r-2xl rounded-bl-2xl max-w-[85%] border border-gray-700 leading-relaxed shadow-md">
-                                    System ready. I am the Vanguard AI Project Manager. Whether you represent a strata council or need a residential quote, I can explain our process. What problem can we make disappear for you today?
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="p-6 bg-black border-t border-gray-800 flex gap-4">
-                            <input type="text" id="chat-input" class="flex-1 bg-gray-900 text-white border border-gray-700 px-4 py-4 text-sm focus:outline-none focus:border-gray-400 transition rounded-xl" placeholder="Ask about your project...">
-                            <button id="send-chat" class="bg-white text-black px-8 py-4 font-bold uppercase tracking-widest text-xs hover:bg-gray-200 transition flex items-center justify-center min-w-[100px] rounded-xl">
-                                Send
-                            </button>
                         </div>
                     </div>
                 </div>
