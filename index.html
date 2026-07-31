@@ -699,6 +699,14 @@
         </div>
     </div>
 
+    <!-- Mobile Floating CTA (Only visible on small screens) -->
+    <div class="fixed bottom-6 left-4 right-4 z-50 lg:hidden pointer-events-none">
+        <button onclick="scrollToQuote()" class="w-full bg-brand-accent text-white py-4 rounded-2xl font-bold uppercase tracking-widest shadow-[0_10px_40px_rgba(0,0,0,0.5)] border border-white/20 flex items-center justify-center gap-3 pointer-events-auto active:scale-95 transition-transform">
+            <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+            Request Fixed Quote
+        </button>
+    </div>
+
     <script>
         // SPA Routing Logic
         function navigate(viewId) {
