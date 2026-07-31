@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pacific Vanguard Contracting | Elite Execution</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
         
@@ -24,20 +23,10 @@
             overflow-x: hidden;
         }
 
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 300px;
-            max-height: 400px;
-        }
-
         .glass-nav {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0,0,0,0.1);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
         .gradient-overlay {
@@ -116,11 +105,15 @@
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        
+        /* Smooth Premium App Overrides */
+        input, select, textarea, button, .rounded-2xl {
+            border-radius: 16px !important;
+        }
     </style>
 </head>
 <body class="antialiased flex flex-col min-h-screen">
 
-    <!-- Navigation -->
     <nav class="fixed w-full z-50 glass-nav">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
@@ -128,28 +121,34 @@
                     <span class="text-2xl font-bold tracking-tighter text-black">PACIFIC VANGUARD</span>
                     <span class="text-[10px] uppercase tracking-widest text-gray-500 font-semibold">Contracting Group</span>
                 </div>
+                
+                <!-- Desktop Menu -->
                 <div class="hidden lg:flex space-x-8 text-sm font-semibold uppercase tracking-wider items-center">
                     <button onclick="navigate('residential')" class="hover:text-gray-500 transition">Residential</button>
                     <button onclick="navigate('commercial')" class="hover:text-gray-500 transition">Commercial</button>
                     <button onclick="navigate('strata')" class="hover:text-gray-500 transition">Strata</button>
                     <button onclick="navigate('ai')" class="text-brand-accent hover:text-black transition flex items-center gap-2">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                        AI Consultant
+                        AI Studio
                     </button>
-                    <button onclick="scrollToQuote()" class="bg-black text-white px-6 py-2 rounded-sm hover:bg-gray-800 transition">Free Quote</button>
+                    <button onclick="scrollToQuote()" class="bg-black text-white px-6 py-2 rounded-xl hover:bg-gray-800 transition">Free Quote</button>
                 </div>
-                <div class="lg:hidden">
-                    <button id="mobile-menu-button" class="text-black text-2xl p-2">&#9776;</button>
+                
+                <!-- Mobile Menu Icons -->
+                <div class="flex lg:hidden items-center gap-3">
+                    <!-- The specific mobile quote button you requested! -->
+                    <button onclick="scrollToQuote()" class="bg-black text-white px-4 py-2 rounded-xl text-[10px] font-bold uppercase tracking-widest shadow-md">Quote</button>
+                    <button id="mobile-menu-button" class="text-black text-2xl p-2 focus:outline-none">&#9776;</button>
                 </div>
             </div>
         </div>
+        
         <!-- Mobile Menu Panel -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 px-4 py-4 space-y-4 shadow-lg absolute w-full">
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 px-4 py-4 space-y-4 shadow-lg absolute w-full rounded-b-2xl">
             <button onclick="navigate('residential')" class="block w-full text-left font-bold uppercase tracking-wider text-sm py-2">Residential</button>
             <button onclick="navigate('commercial')" class="block w-full text-left font-bold uppercase tracking-wider text-sm py-2">Commercial</button>
             <button onclick="navigate('strata')" class="block w-full text-left font-bold uppercase tracking-wider text-sm py-2">Strata</button>
-            <button onclick="navigate('ai')" class="block w-full text-left font-bold uppercase tracking-wider text-sm py-2 text-brand-accent">AI Consultant</button>
-            <button onclick="scrollToQuote()" class="block w-full bg-black text-white px-6 py-3 rounded-sm font-bold uppercase tracking-wider text-sm text-center">Free Quote</button>
+            <button onclick="navigate('ai')" class="block w-full text-left font-bold uppercase tracking-wider text-sm py-2 text-brand-accent">AI Studio</button>
         </div>
     </nav>
 
@@ -169,30 +168,34 @@
                         From high-end residential transformations to strict-deadline commercial operations, we are Metro Vancouver’s elite execution team. One call deploys our heavily vetted trades with ironclad fixed pricing.
                     </p>
                     <div class="flex flex-col sm:flex-row justify-center gap-4">
-                        <button onclick="scrollToQuote()" class="bg-white text-black px-10 py-4 font-bold uppercase tracking-widest hover:bg-gray-200 transition text-sm">Request a Fixed Quote</button>
-                        <button onclick="navigate('residential')" class="border border-white text-white px-10 py-4 font-bold uppercase tracking-widest hover:bg-white hover:text-black transition text-sm">Explore Divisions</button>
+                        <button onclick="scrollToQuote()" class="bg-white text-black px-10 py-4 font-bold uppercase tracking-widest hover:bg-gray-200 transition text-sm rounded-xl">Request a Fixed Quote</button>
+                        <button onclick="navigate('residential')" class="border border-white text-white px-10 py-4 font-bold uppercase tracking-widest hover:bg-white hover:text-black transition text-sm rounded-xl">Explore Divisions</button>
                     </div>
                 </div>
             </section>
 
-            <!-- Trust Pillars Section -->
-            <section class="bg-[#111] text-white py-24">
+            <!-- Trust Pillars Section (Mobile Optimized Cards) -->
+            <section class="bg-[#111] text-white py-16 md:py-20">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-                        <div class="space-y-4">
-                            <h3 class="text-xl font-bold uppercase tracking-wider text-white">Fixed-Bid Pricing</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
+                        <div class="bg-black/40 border border-gray-800/60 p-6 md:p-8 rounded-2xl md:bg-transparent md:border-none md:p-0">
+                            <span class="text-gray-700 font-bold text-2xl mb-2 block md:hidden">01</span>
+                            <h3 class="text-lg md:text-xl font-bold uppercase tracking-wider text-white mb-2 md:mb-4">Fixed-Bid Pricing</h3>
                             <p class="text-gray-400 text-sm leading-relaxed">No hourly traps. No hidden surprises. You get a transparent, itemized quote before we ever touch the property.</p>
                         </div>
-                        <div class="space-y-4">
-                            <h3 class="text-xl font-bold uppercase tracking-wider text-white">Uncompromising Quality</h3>
+                        <div class="bg-black/40 border border-gray-800/60 p-6 md:p-8 rounded-2xl md:bg-transparent md:border-none md:p-0">
+                            <span class="text-gray-700 font-bold text-2xl mb-2 block md:hidden">02</span>
+                            <h3 class="text-lg md:text-xl font-bold uppercase tracking-wider text-white mb-2 md:mb-4">Uncompromising Quality</h3>
                             <p class="text-gray-400 text-sm leading-relaxed">We don't cut corners. From site prep to the final walkthrough, we execute every detail to the highest commercial standard.</p>
                         </div>
-                        <div class="space-y-4">
-                            <h3 class="text-xl font-bold uppercase tracking-wider text-white">Flawless Management</h3>
+                        <div class="bg-black/40 border border-gray-800/60 p-6 md:p-8 rounded-2xl md:bg-transparent md:border-none md:p-0">
+                            <span class="text-gray-700 font-bold text-2xl mb-2 block md:hidden">03</span>
+                            <h3 class="text-lg md:text-xl font-bold uppercase tracking-wider text-white mb-2 md:mb-4">Flawless Management</h3>
                             <p class="text-gray-400 text-sm leading-relaxed">Stop chasing trades. We coordinate the schedules, manage the vetted crews, and deliver the project on deadline.</p>
                         </div>
-                        <div class="space-y-4">
-                            <h3 class="text-xl font-bold uppercase tracking-wider text-white">Total Visibility</h3>
+                        <div class="bg-black/40 border border-gray-800/60 p-6 md:p-8 rounded-2xl md:bg-transparent md:border-none md:p-0">
+                            <span class="text-gray-700 font-bold text-2xl mb-2 block md:hidden">04</span>
+                            <h3 class="text-lg md:text-xl font-bold uppercase tracking-wider text-white mb-2 md:mb-4">Total Visibility</h3>
                             <p class="text-gray-400 text-sm leading-relaxed">You are never left in the dark. We provide proactive updates on progress, daily timelines, and exact next steps.</p>
                         </div>
                     </div>
@@ -208,30 +211,30 @@
                     </div>
                     
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div onclick="navigate('residential')" class="group border border-gray-100 p-8 card-hover bg-white shadow-sm hover:shadow-xl transition cursor-pointer">
-                            <div class="h-48 w-full bg-gray-200 mb-6 overflow-hidden">
+                        <div onclick="navigate('residential')" class="group border border-gray-100 p-8 rounded-2xl card-hover bg-white shadow-sm hover:shadow-xl transition cursor-pointer">
+                            <div class="h-48 w-full bg-gray-200 mb-6 overflow-hidden rounded-xl">
                                 <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=800" alt="Residential" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                             </div>
-                            <h4 class="text-2xl font-bold mb-4">Residential Contracting</h4>
-                            <p class="text-gray-600 text-sm leading-relaxed mb-6">Complete interior and exterior transformations. From flawless painting to full-scale renovations, we deploy elite trades with zero friction.</p>
+                            <h4 class="text-2xl font-bold mb-4">Full-Scale Remodels</h4>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-6">Complete structural updates, major additions, and premium interior transformations. We deploy elite trades with zero friction.</p>
                             <span class="text-xs font-bold uppercase tracking-widest text-black border-b border-black pb-1">Explore Residential &rarr;</span>
                         </div>
                         
-                        <div onclick="navigate('commercial')" class="group border border-gray-100 p-8 card-hover bg-white shadow-sm hover:shadow-xl transition cursor-pointer">
-                            <div class="h-48 w-full bg-gray-200 mb-6 overflow-hidden">
+                        <div onclick="navigate('commercial')" class="group border border-gray-100 p-8 rounded-2xl card-hover bg-white shadow-sm hover:shadow-xl transition cursor-pointer">
+                            <div class="h-48 w-full bg-gray-200 mb-6 overflow-hidden rounded-xl">
                                 <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800" alt="Commercial" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                             </div>
-                            <h4 class="text-2xl font-bold mb-4">Commercial Operations</h4>
-                            <p class="text-gray-600 text-sm leading-relaxed mb-6">Built for business. We execute tenant improvements, office build-outs, and commercial painting with strict adherence to timelines.</p>
+                            <h4 class="text-2xl font-bold mb-4">Tenant Improvements</h4>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-6">Built for business. We execute commercial build-outs, office redesigns, and capital projects with strict adherence to timelines.</p>
                             <span class="text-xs font-bold uppercase tracking-widest text-black border-b border-black pb-1">Explore Commercial &rarr;</span>
                         </div>
                         
-                        <div onclick="navigate('strata')" class="group border border-gray-100 p-8 card-hover bg-white shadow-sm hover:shadow-xl transition cursor-pointer">
-                            <div class="h-48 w-full bg-gray-200 mb-6 overflow-hidden">
+                        <div onclick="navigate('strata')" class="group border border-gray-100 p-8 rounded-2xl card-hover bg-white shadow-sm hover:shadow-xl transition cursor-pointer">
+                            <div class="h-48 w-full bg-gray-200 mb-6 overflow-hidden rounded-xl">
                                 <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=800" alt="Strata" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                             </div>
-                            <h4 class="text-2xl font-bold mb-4">Facility & Strata</h4>
-                            <p class="text-gray-600 text-sm leading-relaxed mb-6">Recurring upkeep you never think about. We handle pressure washing, seasonal repairs, and common-area maintenance across the Lower Mainland.</p>
+                            <h4 class="text-2xl font-bold mb-4">Capital Projects & Strata</h4>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-6">Large-scale structural restoration, building envelope upgrades, and multi-unit complex modernization.</p>
                             <span class="text-xs font-bold uppercase tracking-widest text-black border-b border-black pb-1">Explore Strata &rarr;</span>
                         </div>
                     </div>
@@ -248,11 +251,11 @@
                     
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <!-- Project 1: Commercial -->
-                        <div class="bg-black border border-gray-800 rounded-sm overflow-hidden flex flex-col">
+                        <div class="bg-black border border-gray-800 rounded-2xl overflow-hidden flex flex-col shadow-xl">
                             <div class="h-56 w-full overflow-hidden relative">
                                 <div class="absolute inset-0 bg-black/10 z-10"></div>
                                 <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=800" alt="Commercial Build-out" class="w-full h-full object-cover">
-                                <span class="absolute top-4 left-4 z-20 bg-white text-black text-[9px] font-bold uppercase tracking-widest px-3 py-1 shadow-sm">Commercial TI</span>
+                                <span class="absolute top-4 left-4 z-20 bg-white text-black text-[9px] font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow-sm">Commercial TI</span>
                             </div>
                             <div class="p-8 flex-grow flex flex-col justify-between">
                                 <div>
@@ -266,29 +269,29 @@
                         </div>
 
                         <!-- Project 2: Strata -->
-                        <div class="bg-black border border-gray-800 rounded-sm overflow-hidden flex flex-col">
+                        <div class="bg-black border border-gray-800 rounded-2xl overflow-hidden flex flex-col shadow-xl">
                             <div class="h-56 w-full overflow-hidden relative">
                                 <div class="absolute inset-0 bg-black/10 z-10"></div>
-                                <img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&q=80&w=800" alt="Strata Exterior" class="w-full h-full object-cover">
-                                <span class="absolute top-4 left-4 z-20 bg-white text-black text-[9px] font-bold uppercase tracking-widest px-3 py-1 shadow-sm">Multi-Unit Strata</span>
+                                <img src="https://images.unsplash.com/photo-1512683935817-640a32247fb2?auto=format&fit=crop&q=80&w=800" alt="Strata Exterior" class="w-full h-full object-cover">
+                                <span class="absolute top-4 left-4 z-20 bg-white text-black text-[9px] font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow-sm">Multi-Unit Strata</span>
                             </div>
                             <div class="p-8 flex-grow flex flex-col justify-between">
                                 <div>
                                     <div class="flex items-center space-x-1 mb-4">
                                         <span class="text-gray-500 text-sm font-bold tracking-widest uppercase">Surrey, BC</span>
                                     </div>
-                                    <p class="text-gray-300 text-sm italic mb-6 leading-relaxed">"We had an entire townhome complex painted. Their communication with our strata council was unprecedented. The crews were quiet, tidy, and highly respectful of our residents."</p>
+                                    <p class="text-gray-300 text-sm italic mb-6 leading-relaxed">"We contracted them for a multi-unit complex upgrade. Their communication with our strata council was unprecedented. The crews were quiet, tidy, and highly respectful of our residents."</p>
                                 </div>
                                 <p class="text-white text-[10px] font-bold uppercase tracking-widest border-l-2 border-gray-600 pl-3">— David R., Strata President</p>
                             </div>
                         </div>
 
                         <!-- Project 3: Residential -->
-                        <div class="bg-black border border-gray-800 rounded-sm overflow-hidden flex flex-col">
+                        <div class="bg-black border border-gray-800 rounded-2xl overflow-hidden flex flex-col shadow-xl">
                             <div class="h-56 w-full overflow-hidden relative">
                                 <div class="absolute inset-0 bg-black/10 z-10"></div>
                                 <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=800" alt="Residential Interior" class="w-full h-full object-cover">
-                                <span class="absolute top-4 left-4 z-20 bg-white text-black text-[9px] font-bold uppercase tracking-widest px-3 py-1 shadow-sm">Premium Residential</span>
+                                <span class="absolute top-4 left-4 z-20 bg-white text-black text-[9px] font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow-sm">Premium Residential</span>
                             </div>
                             <div class="p-8 flex-grow flex flex-col justify-between">
                                 <div>
@@ -324,20 +327,20 @@
                             <h2 class="text-3xl font-bold mb-8 uppercase tracking-tighter">Our Residential Capabilities</h2>
                             <ul class="space-y-8">
                                 <li>
-                                    <h4 class="text-lg font-bold mb-2">Interior Painting & Finishing</h4>
-                                    <p class="text-gray-600 text-sm leading-relaxed">Walls, trim, ceilings, and flawless cabinet refinishing. We protect your home completely before a single brush is lifted.</p>
+                                    <h4 class="text-lg font-bold mb-2">Major Renovations & Additions</h4>
+                                    <p class="text-gray-600 text-sm leading-relaxed">Complete structural updates, secondary suite builds, and full-scale room transformations managed from permits to final polish.</p>
                                 </li>
                                 <li>
-                                    <h4 class="text-lg font-bold mb-2">Exterior Painting & Restoration</h4>
-                                    <p class="text-gray-600 text-sm leading-relaxed">Weather-resistant finishes for siding, stucco, and decking to protect your home from the West Coast climate.</p>
+                                    <h4 class="text-lg font-bold mb-2">Kitchen & Bathroom Overhauls</h4>
+                                    <p class="text-gray-600 text-sm leading-relaxed">High-end fixture installation, custom cabinetry, and flawless tiling executed by specialized trades.</p>
                                 </li>
                                 <li>
-                                    <h4 class="text-lg font-bold mb-2">General Renovations & Upgrades</h4>
-                                    <p class="text-gray-600 text-sm leading-relaxed">Drywall repair, trim carpentry, and complete room updates managed from demolition to final polish.</p>
+                                    <h4 class="text-lg font-bold mb-2">Premium Finishing & Painting</h4>
+                                    <p class="text-gray-600 text-sm leading-relaxed">Millwork, trim carpentry, and flawless interior/exterior painting. We protect your home completely before work begins.</p>
                                 </li>
                             </ul>
                         </div>
-                        <div class="bg-gray-50 p-10 border border-gray-100">
+                        <div class="bg-gray-50 p-10 border border-gray-100 rounded-2xl">
                             <h3 class="text-xl font-bold mb-6 uppercase tracking-wider">The Vanguard Process</h3>
                             <div class="space-y-6">
                                 <div class="flex gap-4">
@@ -387,12 +390,12 @@
                             <h2 class="text-3xl font-bold mb-8 uppercase tracking-tighter">Commercial Capabilities</h2>
                             <ul class="space-y-8">
                                 <li>
-                                    <h4 class="text-lg font-bold mb-2">Commercial Painting</h4>
-                                    <p class="text-gray-600 text-sm leading-relaxed">High-durability coatings for offices, retail spaces, and warehouses.</p>
+                                    <h4 class="text-lg font-bold mb-2">Tenant Improvements (TIs)</h4>
+                                    <p class="text-gray-600 text-sm leading-relaxed">Efficient build-outs, demising walls, and aesthetic upgrades for new or changing commercial leases.</p>
                                 </li>
                                 <li>
-                                    <h4 class="text-lg font-bold mb-2">Tenant Improvements (TIs)</h4>
-                                    <p class="text-gray-600 text-sm leading-relaxed">Efficient build-outs and aesthetic upgrades for new or changing commercial leases.</p>
+                                    <h4 class="text-lg font-bold mb-2">Facility & Retail Build-Outs</h4>
+                                    <p class="text-gray-600 text-sm leading-relaxed">From bare concrete to grand opening. We manage framing, electrical, flooring, and final finishes.</p>
                                 </li>
                                 <li>
                                     <h4 class="text-lg font-bold mb-2">After-Hours Execution</h4>
@@ -400,7 +403,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="bg-[#111] text-white p-10">
+                        <div class="bg-[#111] text-white p-10 rounded-2xl shadow-xl">
                             <h3 class="text-xl font-bold mb-6 uppercase tracking-wider text-gray-300">The Vanguard Advantage</h3>
                             <ul class="space-y-6">
                                 <li class="border-l-2 border-brand-accent pl-4">
@@ -441,20 +444,20 @@
                             <h2 class="text-3xl font-bold mb-8 uppercase tracking-tighter">Strata Capabilities</h2>
                             <ul class="space-y-8">
                                 <li>
-                                    <h4 class="text-lg font-bold mb-2">Multi-Unit Exterior Painting</h4>
-                                    <p class="text-gray-600 text-sm leading-relaxed">Large-scale repaints and restoration for townhomes and low-rise developments.</p>
+                                    <h4 class="text-lg font-bold mb-2">Capital Upgrades & Restoration</h4>
+                                    <p class="text-gray-600 text-sm leading-relaxed">Balcony repairs, building envelope upgrades, and large-scale structural restoration projects.</p>
                                 </li>
                                 <li>
-                                    <h4 class="text-lg font-bold mb-2">Common Area Upkeep</h4>
-                                    <p class="text-gray-600 text-sm leading-relaxed">Interior hallway painting, drywall repair, and lobby refreshes.</p>
+                                    <h4 class="text-lg font-bold mb-2">Common Area Modernization</h4>
+                                    <p class="text-gray-600 text-sm leading-relaxed">Interior hallway remodels, lobby refreshes, flooring replacement, and drywall repair.</p>
                                 </li>
                                 <li>
-                                    <h4 class="text-lg font-bold mb-2">Property Washing</h4>
-                                    <p class="text-gray-600 text-sm leading-relaxed">Soft-washing and pressure washing for siding, roofs, and parkades.</p>
+                                    <h4 class="text-lg font-bold mb-2">Exterior Property Maintenance</h4>
+                                    <p class="text-gray-600 text-sm leading-relaxed">Multi-unit exterior repaints, soft-washing, and parkade line painting.</p>
                                 </li>
                             </ul>
                         </div>
-                        <div class="bg-gray-50 p-10 border border-gray-100">
+                        <div class="bg-gray-50 p-10 border border-gray-100 rounded-2xl">
                             <h3 class="text-xl font-bold mb-6 uppercase tracking-wider">The "Red Carpet" Process</h3>
                             <div class="space-y-6">
                                 <div>
@@ -480,6 +483,7 @@
         <!-- VIEW: AI STUDIO                            -->
         <!-- ========================================== -->
         <div id="view-ai" class="page-view">
+            
             <!-- AI Vision Studio -->
             <section class="py-24 bg-gray-100 border-b border-gray-200">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -491,12 +495,11 @@
                         <h2 class="text-4xl font-bold mb-4 uppercase tracking-tighter">Vanguard Vision™ Studio</h2>
                         <p class="text-gray-500 max-w-2xl mx-auto leading-relaxed">Upload a photo of your current space and an inspiration image. Our AI will render a high-fidelity architectural concept combining the two in seconds.</p>
                     </div>
-                    <div class="max-w-4xl mx-auto bg-white p-8 rounded-sm border border-gray-200 shadow-sm">
+                    <div class="max-w-4xl mx-auto bg-white p-8 rounded-2xl border border-gray-200 shadow-xl">
                         <div class="flex flex-col gap-6 mb-6">
-                            <!-- Dual Upload Grid -->
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <!-- Current Space Upload -->
-                                <label for="current-upload" class="cursor-pointer flex flex-col items-center justify-center w-full p-6 border-2 border-dashed border-gray-300 bg-gray-50 hover:border-black transition relative overflow-hidden group">
+                                <label for="current-upload" class="cursor-pointer flex flex-col items-center justify-center w-full p-6 border-2 border-dashed border-gray-300 bg-gray-50 hover:border-black transition relative overflow-hidden group rounded-xl">
                                     <input type="file" id="current-upload" accept="image/*" class="hidden">
                                     <div id="current-placeholder" class="text-center relative z-10 transition-opacity">
                                         <svg class="w-6 h-6 mx-auto mb-2 text-gray-400 group-hover:text-black transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
@@ -505,12 +508,12 @@
                                     </div>
                                     <img id="current-preview" class="hidden absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-20 transition-opacity" alt="Current Space Preview">
                                     <div id="current-overlay" class="hidden absolute inset-0 bg-black/5 flex items-center justify-center">
-                                        <span class="bg-white/90 px-3 py-1 text-[9px] font-bold tracking-widest uppercase border border-gray-200 shadow-sm text-black">Current Space Set</span>
+                                        <span class="bg-white/90 px-3 py-1 text-[9px] font-bold tracking-widest uppercase border border-gray-200 shadow-sm text-black rounded-full">Current Space Set</span>
                                     </div>
                                 </label>
 
                                 <!-- Reference Inspiration Upload -->
-                                <label for="reference-upload" class="cursor-pointer flex flex-col items-center justify-center w-full p-6 border-2 border-dashed border-gray-300 bg-gray-50 hover:border-black transition relative overflow-hidden group">
+                                <label for="reference-upload" class="cursor-pointer flex flex-col items-center justify-center w-full p-6 border-2 border-dashed border-gray-300 bg-gray-50 hover:border-black transition relative overflow-hidden group rounded-xl">
                                     <input type="file" id="reference-upload" accept="image/*" class="hidden">
                                     <div id="reference-placeholder" class="text-center relative z-10 transition-opacity">
                                         <svg class="w-6 h-6 mx-auto mb-2 text-gray-400 group-hover:text-black transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
@@ -519,19 +522,19 @@
                                     </div>
                                     <img id="reference-preview" class="hidden absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-20 transition-opacity" alt="Reference Image Preview">
                                     <div id="reference-overlay" class="hidden absolute inset-0 bg-black/5 flex items-center justify-center">
-                                        <span class="bg-white/90 px-3 py-1 text-[9px] font-bold tracking-widest uppercase border border-gray-200 shadow-sm text-black">Inspiration Set</span>
+                                        <span class="bg-white/90 px-3 py-1 text-[9px] font-bold tracking-widest uppercase border border-gray-200 shadow-sm text-black rounded-full">Inspiration Set</span>
                                     </div>
                                 </label>
                             </div>
 
                             <div class="flex flex-col sm:flex-row gap-4">
-                                <input type="text" id="vision-prompt" class="flex-1 bg-gray-50 border border-gray-300 px-4 py-4 text-sm focus:outline-none focus:border-black transition" placeholder="Step 3: Explain the changes (e.g., Use the flooring from the inspiration photo, but make cabinets white...)">
-                                <button id="generate-vision" class="bg-black text-white px-8 py-4 font-bold uppercase tracking-widest text-xs hover:bg-gray-800 transition flex items-center justify-center min-w-[160px] rounded-sm">
+                                <input type="text" id="vision-prompt" class="flex-1 bg-gray-50 border border-gray-300 px-4 py-4 text-sm focus:outline-none focus:border-black transition rounded-xl" placeholder="Step 3: Explain the changes (e.g., Use the flooring from the inspiration photo...)">
+                                <button id="generate-vision" class="bg-black text-white px-8 py-4 font-bold uppercase tracking-widest text-xs hover:bg-gray-800 transition flex items-center justify-center min-w-[160px] rounded-xl">
                                     Render Concept
                                 </button>
                             </div>
                         </div>
-                        <div id="vision-result" class="w-full aspect-video bg-gray-200 flex items-center justify-center border border-gray-300 overflow-hidden relative shadow-inner">
+                        <div id="vision-result" class="w-full aspect-video bg-gray-200 flex items-center justify-center border border-gray-300 overflow-hidden relative shadow-inner rounded-xl">
                             <span id="vision-placeholder" class="text-gray-400 text-sm uppercase tracking-widest font-semibold text-center px-4">Your architectural concept will appear here</span>
                             <div id="vision-loader" class="hidden absolute inset-0 bg-black/80 flex flex-col items-center justify-center text-white z-10">
                                 <div class="w-10 h-10 border-4 border-white border-t-transparent rounded-full animate-spin mb-4"></div>
@@ -565,7 +568,7 @@
                         </ul>
                     </div>
                     
-                    <div class="lg:w-2/3 w-full bg-[#111] rounded-sm shadow-2xl border border-gray-800 overflow-hidden flex flex-col h-[700px]">
+                    <div class="lg:w-2/3 w-full bg-[#111] rounded-2xl shadow-2xl border border-gray-800 overflow-hidden flex flex-col h-[700px]">
                         <div class="bg-black p-6 border-b border-gray-800 flex justify-between items-center">
                             <div class="flex items-center gap-3">
                                 <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
@@ -575,18 +578,17 @@
                         </div>
                         
                         <div id="chat-history" class="chat-container flex-1 p-6 space-y-6 text-sm bg-[#1a1a1a]">
-                            <!-- Initial AI Message -->
                             <div class="flex flex-col items-start">
                                 <span class="text-[10px] text-gray-500 font-bold mb-1 uppercase tracking-widest">Vanguard AI</span>
-                                <div class="bg-gray-800 text-gray-200 px-5 py-4 rounded-r-lg rounded-bl-lg max-w-[85%] border border-gray-700 leading-relaxed shadow-md">
+                                <div class="bg-gray-800 text-gray-200 px-5 py-4 rounded-r-2xl rounded-bl-2xl max-w-[85%] border border-gray-700 leading-relaxed shadow-md">
                                     System ready. I am the Vanguard AI Project Manager. Whether you represent a strata council or need a residential quote, I can explain our process. What problem can we make disappear for you today?
                                 </div>
                             </div>
                         </div>
                         
                         <div class="p-6 bg-black border-t border-gray-800 flex gap-4">
-                            <input type="text" id="chat-input" class="flex-1 bg-gray-900 text-white border border-gray-700 px-4 py-4 text-sm focus:outline-none focus:border-gray-400 transition rounded-sm" placeholder="Ask about your project...">
-                            <button id="send-chat" class="bg-white text-black px-8 py-4 font-bold uppercase tracking-widest text-xs hover:bg-gray-200 transition flex items-center justify-center min-w-[100px] rounded-sm">
+                            <input type="text" id="chat-input" class="flex-1 bg-gray-900 text-white border border-gray-700 px-4 py-4 text-sm focus:outline-none focus:border-gray-400 transition rounded-xl" placeholder="Ask about your project...">
+                            <button id="send-chat" class="bg-white text-black px-8 py-4 font-bold uppercase tracking-widest text-xs hover:bg-gray-200 transition flex items-center justify-center min-w-[100px] rounded-xl">
                                 Send
                             </button>
                         </div>
@@ -625,7 +627,7 @@
                 </div>
             </div>
             
-            <div class="lg:w-2/3 bg-white text-black p-10 rounded-sm shadow-2xl">
+            <div class="lg:w-2/3 bg-white text-black p-10 rounded-2xl shadow-2xl">
                 <form id="leadForm" class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div class="space-y-2">
                         <label class="text-[10px] uppercase font-bold tracking-widest text-gray-500">Full Name</label>
@@ -642,9 +644,9 @@
                     <div class="space-y-2">
                         <label class="text-[10px] uppercase font-bold tracking-widest text-gray-500">Project Type</label>
                         <select class="w-full border-b border-gray-300 py-2 focus:border-black outline-none bg-transparent">
-                            <option>Residential Painting/Renovation</option>
+                            <option>Residential Renovation</option>
                             <option>Commercial Operation</option>
-                            <option>Strata & Facility Maintenance</option>
+                            <option>Strata & Facility Upgrades</option>
                             <option>Other / Consulting</option>
                         </select>
                     </div>
@@ -665,7 +667,7 @@
                         <textarea class="w-full border-b border-gray-300 py-2 focus:border-black outline-none transition h-24 resize-none bg-transparent" placeholder="What problem can we make disappear?"></textarea>
                     </div>
                     <div class="md:col-span-2 pt-4">
-                        <button type="submit" class="w-full bg-black text-white py-5 font-bold uppercase tracking-widest hover:bg-gray-800 transition text-sm">Submit Project Details</button>
+                        <button type="submit" class="w-full bg-black text-white py-5 font-bold uppercase tracking-widest hover:bg-gray-800 transition text-sm rounded-xl">Submit Project Details</button>
                     </div>
                 </form>
             </div>
@@ -692,31 +694,27 @@
 
     <!-- Custom Modal -->
     <div id="success-modal" class="custom-modal">
-        <div class="bg-white p-10 max-w-md w-full text-center border-t-4 border-black rounded-xl">
+        <div class="bg-white p-10 max-w-md w-full text-center border-t-4 border-black rounded-xl shadow-2xl">
             <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">Initiation Confirmed</h3>
             <p class="text-gray-600 mb-8 text-sm">Your project details have been securely logged. A Vanguard project manager will contact you within 24 hours.</p>
-            <button onclick="closeModal()" class="w-full bg-black text-white py-4 font-bold uppercase tracking-widest text-xs hover:bg-gray-800 transition rounded-lg">Acknowledge</button>
+            <button onclick="closeModal()" class="w-full bg-black text-white py-4 font-bold uppercase tracking-widest text-xs hover:bg-gray-800 transition rounded-xl">Acknowledge</button>
         </div>
     </div>
 
     <script>
         // SPA Routing Logic
         function navigate(viewId) {
-            // Hide all views
             document.querySelectorAll('.page-view').forEach(el => {
                 el.classList.remove('active');
             });
             
-            // Show selected view
             const target = document.getElementById('view-' + viewId);
             if (target) {
                 target.classList.add('active');
             }
             
-            // Scroll to top of the new page content
             window.scrollTo({ top: 0, behavior: 'smooth' });
             
-            // Close mobile menu if open
             const mobileMenu = document.getElementById('mobile-menu');
             if (!mobileMenu.classList.contains('hidden')) {
                 mobileMenu.classList.add('hidden');
@@ -725,7 +723,6 @@
 
         function scrollToQuote() {
             document.getElementById('quote-section').scrollIntoView({ behavior: 'smooth' });
-            // Close mobile menu if open
             document.getElementById('mobile-menu').classList.add('hidden');
         }
 
@@ -759,7 +756,6 @@
             }, 1500);
         });
 
-        // Vanguard AI Assistant Logic (Gemini API)
         const chatInput = document.getElementById('chat-input');
         const sendBtn = document.getElementById('send-chat');
         const chatHistoryEl = document.getElementById('chat-history');
@@ -779,8 +775,8 @@
             
             const bubble = document.createElement('div');
             bubble.className = role === 'user' 
-                ? 'bg-white text-black px-5 py-4 rounded-l-lg rounded-tr-lg max-w-[85%] border border-gray-200 shadow-md' 
-                : 'bg-gray-800 text-gray-200 px-5 py-4 rounded-r-lg rounded-bl-lg max-w-[85%] border border-gray-700 leading-relaxed shadow-md';
+                ? 'bg-white text-black px-5 py-4 rounded-l-2xl rounded-tr-2xl max-w-[85%] border border-gray-200 shadow-md' 
+                : 'bg-gray-800 text-gray-200 px-5 py-4 rounded-r-2xl rounded-bl-2xl max-w-[85%] border border-gray-700 leading-relaxed shadow-md';
             
             bubble.innerHTML = text.replace(/\n/g, '<br>');
             
@@ -792,6 +788,10 @@
         }
 
         async function generateAIResponse(userText, retryCount = 0) {
+            if (!apiKey) {
+                return "AI System temporarily offline for maintenance. Please use the form below to contact a human manager.";
+            }
+
             const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
             conversationHistory.push({ role: "user", parts: [{ text: userText }] });
 
@@ -851,25 +851,24 @@
             chatInput.focus();
         }
 
-        sendBtn.addEventListener('click', handleChatSubmit);
-        chatInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') handleChatSubmit();
-        });
+        if (sendBtn) {
+            sendBtn.addEventListener('click', handleChatSubmit);
+            chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') handleChatSubmit();
+            });
+        }
 
-        // Vanguard Vision AI Image Generation Logic
         const visionPrompt = document.getElementById('vision-prompt');
         const generateBtn = document.getElementById('generate-vision');
         const visionPlaceholder = document.getElementById('vision-placeholder');
         const visionLoader = document.getElementById('vision-loader');
         const visionImage = document.getElementById('vision-image');
         
-        // Current Upload Elements
         const currentUpload = document.getElementById('current-upload');
         const currentPreview = document.getElementById('current-preview');
         const currentOverlay = document.getElementById('current-overlay');
         const currentPlaceholderText = document.getElementById('current-placeholder');
         
-        // Reference Upload Elements
         const referenceUpload = document.getElementById('reference-upload');
         const referencePreview = document.getElementById('reference-preview');
         const referenceOverlay = document.getElementById('reference-overlay');
@@ -880,116 +879,127 @@
         let referenceBase64 = null;
         let referenceMimeType = null;
 
-        // Handle Current Space Upload
-        currentUpload.addEventListener('change', (e) => {
-            const file = e.target.files[0];
-            if (!file) return;
-            currentMimeType = file.type;
-            const reader = new FileReader();
-            reader.onload = (event) => {
-                const dataUrl = event.target.result;
-                currentBase64 = dataUrl.split(',')[1];
-                currentPreview.src = dataUrl;
-                currentPreview.classList.remove('hidden');
-                currentOverlay.classList.remove('hidden');
-                currentPlaceholderText.classList.add('opacity-0');
-            };
-            reader.readAsDataURL(file);
-        });
-
-        // Handle Reference Inspiration Upload
-        referenceUpload.addEventListener('change', (e) => {
-            const file = e.target.files[0];
-            if (!file) return;
-            referenceMimeType = file.type;
-            const reader = new FileReader();
-            reader.onload = (event) => {
-                const dataUrl = event.target.result;
-                referenceBase64 = dataUrl.split(',')[1];
-                referencePreview.src = dataUrl;
-                referencePreview.classList.remove('hidden');
-                referenceOverlay.classList.remove('hidden');
-                referencePlaceholderText.classList.add('opacity-0');
-            };
-            reader.readAsDataURL(file);
-        });
-
-        generateBtn.addEventListener('click', async () => {
-            const promptText = visionPrompt.value.trim();
-            if (!promptText && !currentBase64 && !referenceBase64) return;
-
-            generateBtn.disabled = true;
-            visionPrompt.disabled = true;
-            currentUpload.disabled = true;
-            referenceUpload.disabled = true;
-            
-            visionPlaceholder.classList.add('hidden');
-            visionImage.classList.add('hidden');
-            visionLoader.classList.remove('hidden');
-            generateBtn.innerText = 'RENDERING...';
-
-            try {
-                const visionApiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-image-preview:generateContent?key=${apiKey}`;
-                
-                const parts = [];
-                let enhancedPrompt = "";
-
-                if (currentBase64 && referenceBase64) {
-                    enhancedPrompt = `Act as an elite architectural renderer. I am providing two images. Image 1 is the current space. Image 2 is the style inspiration. Redesign the current space (Image 1) so that its layout incorporates the aesthetic, materials, and lighting of the style inspiration (Image 2). Additional client instructions: ${promptText || "Blend these styles flawlessly."}. Maintain photorealism.`;
-                    parts.push({ text: enhancedPrompt });
-                    parts.push({ inlineData: { mimeType: currentMimeType, data: currentBase64 } });
-                    parts.push({ inlineData: { mimeType: referenceMimeType, data: referenceBase64 } });
-                } else if (currentBase64) {
-                    enhancedPrompt = `Act as an elite architectural renderer. Modify and redesign the provided image of the current space based strictly on these instructions: ${promptText || "Redesign this space to look modern, high-end, and highly finished."}. Maintain the structural integrity but apply a highly photorealistic, modern construction aesthetic.`;
-                    parts.push({ text: enhancedPrompt });
-                    parts.push({ inlineData: { mimeType: currentMimeType, data: currentBase64 } });
-                } else if (referenceBase64) {
-                    enhancedPrompt = `Act as an elite architectural renderer. Create a highly realistic, professional architectural photography rendering inspired by the provided reference image. Follow these instructions: ${promptText || "Use the provided image as an aesthetic reference for a flawless new architectural design."}.`;
-                    parts.push({ text: enhancedPrompt });
-                    parts.push({ inlineData: { mimeType: referenceMimeType, data: referenceBase64 } });
-                } else {
-                    enhancedPrompt = `Create a highly realistic, professional architectural photography rendering of: ${promptText}. High end residential or commercial construction context. Clean lines, modern aesthetic, highly detailed, photorealistic lighting, Canon EOS R5.`;
-                    parts.push({ text: enhancedPrompt });
-                }
-
-                const payload = {
-                    contents: [{
-                        role: 'user',
-                        parts: parts
-                    }],
-                    generationConfig: { responseModalities: ['IMAGE'], imageConfig: { aspectRatio: "16:9" } }
+        if (currentUpload) {
+            currentUpload.addEventListener('change', (e) => {
+                const file = e.target.files[0];
+                if (!file) return;
+                currentMimeType = file.type;
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    const dataUrl = event.target.result;
+                    currentBase64 = dataUrl.split(',')[1];
+                    currentPreview.src = dataUrl;
+                    currentPreview.classList.remove('hidden');
+                    currentOverlay.classList.remove('hidden');
+                    currentPlaceholderText.classList.add('opacity-0');
                 };
+                reader.readAsDataURL(file);
+            });
+        }
 
-                const response = await fetch(visionApiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
+        if (referenceUpload) {
+            referenceUpload.addEventListener('change', (e) => {
+                const file = e.target.files[0];
+                if (!file) return;
+                referenceMimeType = file.type;
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    const dataUrl = event.target.result;
+                    referenceBase64 = dataUrl.split(',')[1];
+                    referencePreview.src = dataUrl;
+                    referencePreview.classList.remove('hidden');
+                    referenceOverlay.classList.remove('hidden');
+                    referencePlaceholderText.classList.add('opacity-0');
+                };
+                reader.readAsDataURL(file);
+            });
+        }
 
-                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-
-                const result = await response.json();
-                const part = result?.candidates?.[0]?.content?.parts?.find(p => p.inlineData);
-                
-                if (part && part.inlineData) {
-                    const imageUrl = `data:${part.inlineData.mimeType};base64,${part.inlineData.data}`;
-                    visionImage.src = imageUrl;
-                    visionImage.classList.remove('hidden');
-                } else {
-                    throw new Error('No image data returned from API');
+        if (generateBtn) {
+            generateBtn.addEventListener('click', async () => {
+                if (!apiKey) {
+                    visionPlaceholder.innerText = "AI System temporarily offline for maintenance.";
+                    visionPlaceholder.classList.remove('hidden');
+                    return;
                 }
-            } catch (error) {
-                console.error('Vision API Error:', error);
-                visionPlaceholder.innerText = "Error generating concept. Please adjust your prompt and try again.";
-                visionPlaceholder.classList.remove('hidden');
-            } finally {
-                visionLoader.classList.add('hidden');
-                generateBtn.disabled = false;
-                visionPrompt.disabled = false;
-                visionUpload.disabled = false;
-                generateBtn.innerText = 'RENDER CONCEPT';
-            }
-        });
+
+                const promptText = visionPrompt.value.trim();
+                if (!promptText && !currentBase64 && !referenceBase64) return;
+
+                generateBtn.disabled = true;
+                visionPrompt.disabled = true;
+                currentUpload.disabled = true;
+                referenceUpload.disabled = true;
+                
+                visionPlaceholder.classList.add('hidden');
+                visionImage.classList.add('hidden');
+                visionLoader.classList.remove('hidden');
+                generateBtn.innerText = 'RENDERING...';
+
+                try {
+                    const visionApiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-image-preview:generateContent?key=${apiKey}`;
+                    
+                    const parts = [];
+                    let enhancedPrompt = "";
+
+                    if (currentBase64 && referenceBase64) {
+                        enhancedPrompt = `Act as an elite architectural renderer. I am providing two images. Image 1 is the current space. Image 2 is the style inspiration. Redesign the current space (Image 1) so that its layout incorporates the aesthetic, materials, and lighting of the style inspiration (Image 2). Additional client instructions: ${promptText || "Blend these styles flawlessly."}. Maintain photorealism.`;
+                        parts.push({ text: enhancedPrompt });
+                        parts.push({ inlineData: { mimeType: currentMimeType, data: currentBase64 } });
+                        parts.push({ inlineData: { mimeType: referenceMimeType, data: referenceBase64 } });
+                    } else if (currentBase64) {
+                        enhancedPrompt = `Act as an elite architectural renderer. Modify and redesign the provided image of the current space based strictly on these instructions: ${promptText || "Redesign this space to look modern, high-end, and highly finished."}. Maintain the structural integrity but apply a highly photorealistic, modern construction aesthetic.`;
+                        parts.push({ text: enhancedPrompt });
+                        parts.push({ inlineData: { mimeType: currentMimeType, data: currentBase64 } });
+                    } else if (referenceBase64) {
+                        enhancedPrompt = `Act as an elite architectural renderer. Create a highly realistic, professional architectural photography rendering inspired by the provided reference image. Follow these instructions: ${promptText || "Use the provided image as an aesthetic reference for a flawless new architectural design."}.`;
+                        parts.push({ text: enhancedPrompt });
+                        parts.push({ inlineData: { mimeType: referenceMimeType, data: referenceBase64 } });
+                    } else {
+                        enhancedPrompt = `Create a highly realistic, professional architectural photography rendering of: ${promptText}. High end residential or commercial construction context. Clean lines, modern aesthetic, highly detailed, photorealistic lighting, Canon EOS R5.`;
+                        parts.push({ text: enhancedPrompt });
+                    }
+
+                    const payload = {
+                        contents: [{
+                            role: 'user',
+                            parts: parts
+                        }],
+                        generationConfig: { responseModalities: ['IMAGE'], imageConfig: { aspectRatio: "16:9" } }
+                    };
+
+                    const response = await fetch(visionApiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
+                    const result = await response.json();
+                    const part = result?.candidates?.[0]?.content?.parts?.find(p => p.inlineData);
+                    
+                    if (part && part.inlineData) {
+                        const imageUrl = `data:${part.inlineData.mimeType};base64,${part.inlineData.data}`;
+                        visionImage.src = imageUrl;
+                        visionImage.classList.remove('hidden');
+                    } else {
+                        throw new Error('No image data returned from API');
+                    }
+                } catch (error) {
+                    console.error('Vision API Error:', error);
+                    visionPlaceholder.innerText = "Error generating concept. Please adjust your prompt and try again.";
+                    visionPlaceholder.classList.remove('hidden');
+                } finally {
+                    visionLoader.classList.add('hidden');
+                    generateBtn.disabled = false;
+                    visionPrompt.disabled = false;
+                    currentUpload.disabled = false;
+                    referenceUpload.disabled = false;
+                    generateBtn.innerText = 'RENDER CONCEPT';
+                }
+            });
+        }
     </script>
 </body>
 </html>
