@@ -303,69 +303,6 @@
                     </div>
                 </div>
             </section>
-
-            <!-- AI Vision Studio -->
-            <section class="py-24 bg-gray-100 border-t border-gray-200">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="text-center mb-12">
-                        <div class="inline-flex items-center justify-center space-x-2 bg-black text-white px-4 py-1 rounded-full mb-4">
-                            <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                            <span class="text-[10px] uppercase font-bold tracking-widest">Powered by Gemini AI</span>
-                        </div>
-                        <h2 class="text-4xl font-bold mb-4 uppercase tracking-tighter">Vanguard Vision™ Studio</h2>
-                        <p class="text-gray-500 max-w-2xl mx-auto leading-relaxed">Upload a photo of your current space or describe your ideal aesthetic, and our AI will render a high-fidelity architectural concept in seconds.</p>
-                    </div>
-                    <div class="max-w-4xl mx-auto bg-white p-8 rounded-sm border border-gray-200 shadow-sm">
-                        <div class="flex flex-col gap-6 mb-6">
-                            <!-- Dual Upload Grid -->
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <!-- Current Space Upload -->
-                                <label for="current-upload" class="cursor-pointer flex flex-col items-center justify-center w-full p-6 border-2 border-dashed border-gray-300 bg-gray-50 hover:border-black transition relative overflow-hidden group">
-                                    <input type="file" id="current-upload" accept="image/*" class="hidden">
-                                    <div id="current-placeholder" class="text-center relative z-10 transition-opacity">
-                                        <svg class="w-6 h-6 mx-auto mb-2 text-gray-400 group-hover:text-black transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                        <span class="block text-xs uppercase font-bold tracking-widest text-gray-500 group-hover:text-black transition">1. Upload Current Space</span>
-                                        <span class="block text-[10px] text-gray-400 mt-1">Photo of the area to remodel</span>
-                                    </div>
-                                    <img id="current-preview" class="hidden absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-20 transition-opacity" alt="Current Space Preview">
-                                    <div id="current-overlay" class="hidden absolute inset-0 bg-black/5 flex items-center justify-center">
-                                        <span class="bg-white/90 px-3 py-1 text-[9px] font-bold tracking-widest uppercase border border-gray-200 shadow-sm text-black">Current Space Set</span>
-                                    </div>
-                                </label>
-
-                                <!-- Reference Inspiration Upload -->
-                                <label for="reference-upload" class="cursor-pointer flex flex-col items-center justify-center w-full p-6 border-2 border-dashed border-gray-300 bg-gray-50 hover:border-black transition relative overflow-hidden group">
-                                    <input type="file" id="reference-upload" accept="image/*" class="hidden">
-                                    <div id="reference-placeholder" class="text-center relative z-10 transition-opacity">
-                                        <svg class="w-6 h-6 mx-auto mb-2 text-gray-400 group-hover:text-black transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                                        <span class="block text-xs uppercase font-bold tracking-widest text-gray-500 group-hover:text-black transition">2. Upload Inspiration</span>
-                                        <span class="block text-[10px] text-gray-400 mt-1">Photo of your desired aesthetic</span>
-                                    </div>
-                                    <img id="reference-preview" class="hidden absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-20 transition-opacity" alt="Reference Image Preview">
-                                    <div id="reference-overlay" class="hidden absolute inset-0 bg-black/5 flex items-center justify-center">
-                                        <span class="bg-white/90 px-3 py-1 text-[9px] font-bold tracking-widest uppercase border border-gray-200 shadow-sm text-black">Inspiration Set</span>
-                                    </div>
-                                </label>
-                            </div>
-
-                            <div class="flex flex-col sm:flex-row gap-4">
-                                <input type="text" id="vision-prompt" class="flex-1 bg-gray-50 border border-gray-300 px-4 py-4 text-sm focus:outline-none focus:border-black transition" placeholder="Step 3: Explain the changes (e.g., Use the flooring from the inspiration photo, but make cabinets white...)">
-                                <button id="generate-vision" class="bg-black text-white px-8 py-4 font-bold uppercase tracking-widest text-xs hover:bg-gray-800 transition flex items-center justify-center min-w-[160px] rounded-sm">
-                                    Render Concept
-                                </button>
-                            </div>
-                        </div>
-                        <div id="vision-result" class="w-full aspect-video bg-gray-200 flex items-center justify-center border border-gray-300 overflow-hidden relative shadow-inner">
-                            <span id="vision-placeholder" class="text-gray-400 text-sm uppercase tracking-widest font-semibold text-center px-4">Your architectural concept will appear here</span>
-                            <div id="vision-loader" class="hidden absolute inset-0 bg-black/80 flex flex-col items-center justify-center text-white z-10">
-                                <div class="w-10 h-10 border-4 border-white border-t-transparent rounded-full animate-spin mb-4"></div>
-                                <span class="text-xs uppercase tracking-widest font-bold">Rendering Vanguard Concept...</span>
-                            </div>
-                            <img id="vision-image" class="hidden w-full h-full object-cover transition-opacity duration-500" alt="AI Generated Concept">
-                        </div>
-                    </div>
-                </div>
-            </section>
         </div>
 
         <!-- ========================================== -->
@@ -540,12 +477,76 @@
         </div>
 
         <!-- ========================================== -->
-        <!-- VIEW: AI CONSULTANT                        -->
+        <!-- VIEW: AI STUDIO                            -->
         <!-- ========================================== -->
         <div id="view-ai" class="page-view">
-            <section class="py-24 bg-gray-50 min-h-screen">
+            <!-- AI Vision Studio -->
+            <section class="py-24 bg-gray-100 border-b border-gray-200">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-12">
+                        <div class="inline-flex items-center justify-center space-x-2 bg-black text-white px-4 py-1 rounded-full mb-4">
+                            <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                            <span class="text-[10px] uppercase font-bold tracking-widest">Powered by Gemini AI</span>
+                        </div>
+                        <h2 class="text-4xl font-bold mb-4 uppercase tracking-tighter">Vanguard Vision™ Studio</h2>
+                        <p class="text-gray-500 max-w-2xl mx-auto leading-relaxed">Upload a photo of your current space and an inspiration image. Our AI will render a high-fidelity architectural concept combining the two in seconds.</p>
+                    </div>
+                    <div class="max-w-4xl mx-auto bg-white p-8 rounded-sm border border-gray-200 shadow-sm">
+                        <div class="flex flex-col gap-6 mb-6">
+                            <!-- Dual Upload Grid -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <!-- Current Space Upload -->
+                                <label for="current-upload" class="cursor-pointer flex flex-col items-center justify-center w-full p-6 border-2 border-dashed border-gray-300 bg-gray-50 hover:border-black transition relative overflow-hidden group">
+                                    <input type="file" id="current-upload" accept="image/*" class="hidden">
+                                    <div id="current-placeholder" class="text-center relative z-10 transition-opacity">
+                                        <svg class="w-6 h-6 mx-auto mb-2 text-gray-400 group-hover:text-black transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                        <span class="block text-xs uppercase font-bold tracking-widest text-gray-500 group-hover:text-black transition">1. Upload Current Space</span>
+                                        <span class="block text-[10px] text-gray-400 mt-1">Photo of the area to remodel</span>
+                                    </div>
+                                    <img id="current-preview" class="hidden absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-20 transition-opacity" alt="Current Space Preview">
+                                    <div id="current-overlay" class="hidden absolute inset-0 bg-black/5 flex items-center justify-center">
+                                        <span class="bg-white/90 px-3 py-1 text-[9px] font-bold tracking-widest uppercase border border-gray-200 shadow-sm text-black">Current Space Set</span>
+                                    </div>
+                                </label>
+
+                                <!-- Reference Inspiration Upload -->
+                                <label for="reference-upload" class="cursor-pointer flex flex-col items-center justify-center w-full p-6 border-2 border-dashed border-gray-300 bg-gray-50 hover:border-black transition relative overflow-hidden group">
+                                    <input type="file" id="reference-upload" accept="image/*" class="hidden">
+                                    <div id="reference-placeholder" class="text-center relative z-10 transition-opacity">
+                                        <svg class="w-6 h-6 mx-auto mb-2 text-gray-400 group-hover:text-black transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                        <span class="block text-xs uppercase font-bold tracking-widest text-gray-500 group-hover:text-black transition">2. Upload Inspiration</span>
+                                        <span class="block text-[10px] text-gray-400 mt-1">Photo of your desired aesthetic</span>
+                                    </div>
+                                    <img id="reference-preview" class="hidden absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-20 transition-opacity" alt="Reference Image Preview">
+                                    <div id="reference-overlay" class="hidden absolute inset-0 bg-black/5 flex items-center justify-center">
+                                        <span class="bg-white/90 px-3 py-1 text-[9px] font-bold tracking-widest uppercase border border-gray-200 shadow-sm text-black">Inspiration Set</span>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <div class="flex flex-col sm:flex-row gap-4">
+                                <input type="text" id="vision-prompt" class="flex-1 bg-gray-50 border border-gray-300 px-4 py-4 text-sm focus:outline-none focus:border-black transition" placeholder="Step 3: Explain the changes (e.g., Use the flooring from the inspiration photo, but make cabinets white...)">
+                                <button id="generate-vision" class="bg-black text-white px-8 py-4 font-bold uppercase tracking-widest text-xs hover:bg-gray-800 transition flex items-center justify-center min-w-[160px] rounded-sm">
+                                    Render Concept
+                                </button>
+                            </div>
+                        </div>
+                        <div id="vision-result" class="w-full aspect-video bg-gray-200 flex items-center justify-center border border-gray-300 overflow-hidden relative shadow-inner">
+                            <span id="vision-placeholder" class="text-gray-400 text-sm uppercase tracking-widest font-semibold text-center px-4">Your architectural concept will appear here</span>
+                            <div id="vision-loader" class="hidden absolute inset-0 bg-black/80 flex flex-col items-center justify-center text-white z-10">
+                                <div class="w-10 h-10 border-4 border-white border-t-transparent rounded-full animate-spin mb-4"></div>
+                                <span class="text-xs uppercase tracking-widest font-bold">Rendering Vanguard Concept...</span>
+                            </div>
+                            <img id="vision-image" class="hidden w-full h-full object-cover transition-opacity duration-500" alt="AI Generated Concept">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- AI Chat Consultant -->
+            <section class="py-24 bg-white min-h-screen">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row gap-12 items-start mt-8">
-                    <div class="lg:w-1/3 sticky top-32">
+                    <div class="lg:w-1/3 lg:sticky lg:top-32">
                         <div class="inline-flex items-center justify-center space-x-2 bg-black text-white px-4 py-1 rounded-full mb-6">
                             <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
                             <span class="text-[10px] uppercase font-bold tracking-widest">System Online</span>
