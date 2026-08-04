@@ -9,7 +9,6 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%231a1a1a%22/><text x=%2250%22 y=%2268%22 font-family=%22system-ui, sans-serif%22 font-size=%2245%22 font-weight=%22900%22 text-anchor=%22middle%22 fill=%22white%22>PV</text></svg>">
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
         
@@ -82,20 +81,6 @@
             display: flex;
         }
 
-        .chat-container {
-            max-height: 500px;
-            overflow-y: auto;
-        }
-        
-        .chat-container::-webkit-scrollbar {
-            width: 6px;
-        }
-        
-        .chat-container::-webkit-scrollbar-thumb {
-            background-color: #333;
-            border-radius: 3px;
-        }
-
         /* SPA Routing Styles */
         .page-view {
             display: none;
@@ -111,15 +96,8 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
-        /* Smooth Premium App Overrides */
-        button, .rounded-2xl {
-            border-radius: 16px !important;
-        }
-        
-        /* Crisp Forms */
-        input, select, textarea {
-            border-radius: 8px !important;
-        }
+        button, .rounded-2xl { border-radius: 16px !important; }
+        input, select, textarea { border-radius: 8px !important; }
 
         .text-metallic {
             background: linear-gradient(135deg, #ffffff 0%, #e4e4e7 25%, #d4d4d8 50%, #e4e4e7 75%, #ffffff 100%);
@@ -136,7 +114,6 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'AW-18364318471');
     </script>
 </head>
@@ -150,7 +127,6 @@
                     <span class="text-[8px] md:text-[10px] uppercase tracking-widest text-gray-500 font-semibold">Contracting Group</span>
                 </div>
                 
-                <!-- Desktop Menu -->
                 <div class="hidden lg:flex space-x-8 text-sm font-semibold uppercase tracking-wider items-center">
                     <button onclick="navigate('residential')" class="hover:text-gray-500 transition">Residential</button>
                     <button onclick="navigate('commercial')" class="hover:text-gray-500 transition">Commercial</button>
@@ -162,7 +138,6 @@
                     <button onclick="scrollToQuote()" class="bg-black text-white px-6 py-2 rounded-xl hover:bg-gray-800 transition">Free Quote</button>
                 </div>
                 
-                <!-- Mobile Menu Icons -->
                 <div class="flex lg:hidden items-center gap-3">
                     <a href="tel:7783235146" class="text-black p-2">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
@@ -173,7 +148,6 @@
             </div>
         </div>
         
-        <!-- Mobile Menu Panel -->
         <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 px-4 py-4 space-y-4 shadow-lg absolute w-full rounded-b-2xl">
             <button onclick="navigate('residential')" class="block w-full text-left font-bold uppercase tracking-wider text-sm py-2">Residential</button>
             <button onclick="navigate('commercial')" class="block w-full text-left font-bold uppercase tracking-wider text-sm py-2">Commercial</button>
@@ -181,27 +155,20 @@
         </div>
     </nav>
 
-    <!-- MAIN APP CONTAINER -->
     <main class="flex-grow pt-20">
 
-        <!-- ========================================== -->
-        <!-- VIEW: HOME                                 -->
-        <!-- ========================================== -->
+        <!-- VIEW: HOME -->
         <div id="view-home" class="page-view active">
-            <!-- Hero Section -->
             <section class="relative h-[90vh] flex items-center justify-center hero-bg text-white">
                 <div class="absolute inset-0 gradient-overlay"></div>
                 <div class="relative z-10 text-center px-4 max-w-5xl">
-                    
                     <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight leading-tight">
                         <span class="block text-white drop-shadow-lg">Pacific Vanguard Contracting.</span>
                         <span class="block text-4xl md:text-6xl mt-4 font-black tracking-[0.2em] uppercase text-metallic">Elite Execution.</span>
                     </h1>
-                    
                     <p class="text-lg md:text-xl mb-10 text-gray-300 font-light leading-relaxed max-w-3xl mx-auto">
                         From high-end residential transformations to strict-deadline commercial operations, we are Metro Vancouver’s elite execution team. One call deploys our highly vetted trades with guaranteed fixed pricing.
                     </p>
-                    
                     <div class="flex flex-col sm:flex-row justify-center gap-4">
                         <button onclick="scrollToQuote()" class="bg-white text-black px-10 py-4 font-bold uppercase tracking-widest hover:bg-gray-200 transition text-sm rounded-xl">Request a Fixed Quote</button>
                         <button onclick="navigate('residential')" class="border border-white text-white px-10 py-4 font-bold uppercase tracking-widest hover:bg-white hover:text-black transition text-sm rounded-xl">Explore Divisions</button>
@@ -209,7 +176,6 @@
                 </div>
             </section>
 
-            <!-- Trust Pillars Section (Mobile Optimized Cards) -->
             <section class="bg-[#111] text-white py-16 md:py-20">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
@@ -237,7 +203,6 @@
                 </div>
             </section>
 
-            <!-- Core Divisions -->
             <section class="py-24 bg-white">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="mb-16 text-center max-w-3xl mx-auto">
@@ -276,7 +241,6 @@
                 </div>
             </section>
 
-            <!-- Featured Executions & Testimonials -->
             <section class="py-24 bg-[#1a1a1a] text-white border-t border-black">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="mb-16 text-center max-w-3xl mx-auto">
@@ -285,7 +249,6 @@
                     </div>
                     
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <!-- Project 1: Commercial -->
                         <div class="bg-black border border-gray-800 rounded-2xl overflow-hidden flex flex-col shadow-xl">
                             <div class="h-56 w-full overflow-hidden relative">
                                 <div class="absolute inset-0 bg-black/10 z-10"></div>
@@ -303,7 +266,6 @@
                             </div>
                         </div>
 
-                        <!-- Project 2: Strata -->
                         <div class="bg-black border border-gray-800 rounded-2xl overflow-hidden flex flex-col shadow-xl">
                             <div class="h-56 w-full overflow-hidden relative">
                                 <div class="absolute inset-0 bg-black/10 z-10"></div>
@@ -321,7 +283,6 @@
                             </div>
                         </div>
 
-                        <!-- Project 3: Residential -->
                         <div class="bg-black border border-gray-800 rounded-2xl overflow-hidden flex flex-col shadow-xl">
                             <div class="h-56 w-full overflow-hidden relative">
                                 <div class="absolute inset-0 bg-black/10 z-10"></div>
@@ -343,9 +304,7 @@
             </section>
         </div>
 
-        <!-- ========================================== -->
-        <!-- VIEW: RESIDENTIAL                          -->
-        <!-- ========================================== -->
+        <!-- VIEW: RESIDENTIAL -->
         <div id="view-residential" class="page-view">
             <section class="relative h-[60vh] flex items-center justify-center hero-bg-res text-white">
                 <div class="absolute inset-0 gradient-overlay"></div>
@@ -406,9 +365,7 @@
             </section>
         </div>
 
-        <!-- ========================================== -->
-        <!-- VIEW: COMMERCIAL                           -->
-        <!-- ========================================== -->
+        <!-- VIEW: COMMERCIAL -->
         <div id="view-commercial" class="page-view">
             <section class="relative h-[60vh] flex items-center justify-center hero-bg-com text-white">
                 <div class="absolute inset-0 gradient-overlay"></div>
@@ -460,9 +417,7 @@
             </section>
         </div>
 
-        <!-- ========================================== -->
-        <!-- VIEW: STRATA                               -->
-        <!-- ========================================== -->
+        <!-- VIEW: STRATA -->
         <div id="view-strata" class="page-view">
             <section class="relative h-[60vh] flex items-center justify-center hero-bg-strata text-white">
                 <div class="absolute inset-0 gradient-overlay"></div>
@@ -514,59 +469,9 @@
             </section>
         </div>
 
-        <!-- ========================================== -->
-        <!-- VIEW: CRM PORTAL (HIDDEN)                  -->
-        <!-- ========================================== -->
-        <div id="view-crm" class="page-view min-h-screen bg-gray-900 text-white pt-10 pb-20">
-            <!-- Login Screen -->
-            <div id="crm-login" class="max-w-md mx-auto mt-20 bg-gray-800 p-8 rounded-2xl shadow-2xl border border-gray-700">
-                <h2 class="text-2xl font-bold mb-6 text-center uppercase tracking-widest text-white">Agent Portal</h2>
-                <input type="password" id="crm-passcode" placeholder="Enter Access Code" class="w-full bg-gray-900 border border-gray-700 rounded-lg p-4 text-white mb-2 focus:border-white outline-none">
-                <p id="crm-error" class="text-red-400 text-xs font-bold mb-4 hidden text-center">Invalid Access Code.</p>
-                <button onclick="window.attemptCrmLogin()" class="w-full bg-white text-black py-4 rounded-lg font-bold uppercase tracking-widest hover:bg-gray-200 transition">Access Database</button>
-                <p class="text-[10px] text-gray-500 mt-4 text-center uppercase tracking-widest">Unauthorized access is strictly prohibited.</p>
-            </div>
-
-            <!-- Dashboard Screen -->
-            <div id="crm-dashboard" class="max-w-7xl mx-auto px-4 hidden">
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
-                    <div>
-                        <h2 class="text-3xl font-bold uppercase tracking-tight">Lead Database</h2>
-                        <p class="text-sm text-gray-400">Live feed of inbound projects</p>
-                    </div>
-                    <div class="flex gap-3">
-                        <label for="csv-upload" class="cursor-pointer bg-white text-black px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-widest hover:bg-gray-200 transition">Import CSV</label>
-                        <input type="file" id="csv-upload" accept=".csv" class="hidden" onchange="window.importCSV(event)">
-                        <button onclick="window.location.hash = ''" class="text-xs font-bold text-gray-400 hover:text-white uppercase tracking-widest border border-gray-700 px-4 py-2 rounded-lg">Exit Portal</button>
-                    </div>
-                </div>
-                
-                <div class="overflow-x-auto bg-gray-800 rounded-xl border border-gray-700 shadow-xl">
-                    <table class="w-full text-left text-sm text-gray-300 min-w-[800px]">
-                        <thead class="bg-gray-900 text-gray-400 uppercase text-[10px] tracking-widest">
-                            <tr>
-                                <th class="px-6 py-4">Date</th>
-                                <th class="px-6 py-4">Client</th>
-                                <th class="px-6 py-4">Project Scope</th>
-                                <th class="px-6 py-4">Status</th>
-                                <th class="px-6 py-4 text-right">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody id="crm-leads-table" class="divide-y divide-gray-700">
-                            <!-- Leads populated via JS -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
     </main>
 
-    <!-- ========================================== -->
-    <!-- GLOBAL FOOTER & LEAD FORM                  -->
-    <!-- ========================================== -->
-    
-    <!-- Qualification Form Section (Visible on all pages) -->
+    <!-- GLOBAL FOOTER & LEAD FORM -->
     <section id="quote-section" class="py-24 bg-[#1a1a1a] text-white border-t-4 border-black">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row gap-16">
             <div class="lg:w-1/3">
@@ -591,7 +496,8 @@
             </div>
             
             <div class="lg:w-2/3 bg-white text-black p-10 rounded-2xl shadow-2xl">
-            <form id="leadForm" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- IMPORTANT: enctype added here for file uploads -->
+            <form id="leadForm" class="grid grid-cols-1 md:grid-cols-2 gap-6" enctype="multipart/form-data">
                 
                 <!-- PASTE YOUR WEB3FORMS KEY HERE -->
                 <input type="hidden" name="access_key" value="9a8a02a7-7222-4f04-a75b-af2e9baeee9b">
@@ -647,6 +553,7 @@
                     <button type="submit" class="w-full bg-black text-white py-5 font-bold uppercase tracking-widest hover:bg-gray-800 transition text-sm rounded-2xl">Submit Project Details</button>
                 </div>
             </form>
+            </div>
         </div>
     </section>
 
@@ -687,297 +594,6 @@
         </div>
     </div>
 
-    <!-- Communication Hub Modal -->
-    <div id="comms-modal" class="custom-modal">
-        <div class="bg-gray-900 p-8 max-w-2xl w-full rounded-2xl shadow-2xl border border-gray-700 flex flex-col h-[600px] m-4">
-            <div class="flex justify-between items-center mb-6">
-                <h3 class="text-xl font-bold text-white uppercase tracking-wider" id="comms-name">Client Name</h3>
-                <button onclick="window.closeComms()" class="text-gray-400 hover:text-white font-bold text-xl">✕</button>
-            </div>
-            
-            <div class="flex gap-2 mb-4">
-                <button onclick="alert('To activate native in-app calling, a Twilio API integration ($1/mo) is required. For now, please use Google Voice or your native dialer and log your notes below.')" class="flex-1 bg-gray-800 border border-gray-700 text-white py-3 rounded-lg text-xs font-bold hover:bg-gray-700 transition tracking-widest uppercase">📞 Web Dialer</button>
-                <button onclick="alert('To activate native in-app SMS, a Twilio API integration ($1/mo) is required. For now, please use Google Voice or your native SMS app and log your notes below.')" class="flex-1 bg-gray-800 border border-gray-700 text-white py-3 rounded-lg text-xs font-bold hover:bg-gray-700 transition tracking-widest uppercase">✉️ Send SMS</button>
-            </div>
-            
-            <div class="bg-blue-900/20 border border-blue-500/30 p-3 rounded-lg mb-4 text-[10px] text-blue-200 uppercase tracking-widest leading-relaxed text-center">
-                <strong>Notice:</strong> Free native VoIP/SMS does not exist in browsers. To keep messages separate from personal, use <a href="https://voice.google.com" target="_blank" class="underline font-bold text-blue-100">Google Voice</a> and log your communications below.
-            </div>
-
-            <div class="flex-grow bg-gray-800 rounded-lg border border-gray-700 p-4 overflow-y-auto mb-4 flex flex-col gap-3" id="comms-log">
-                <!-- Notes/Logs go here -->
-            </div>
-
-            <div class="flex gap-2">
-                <input type="text" id="comms-input" placeholder="Type a message or log a note..." class="flex-grow bg-gray-900 border border-gray-700 rounded-lg px-4 text-sm text-white focus:outline-none focus:border-gray-500 transition" onkeypress="if(event.key === 'Enter') window.saveCommNote()">
-                <button onclick="window.saveCommNote()" class="bg-white text-black px-8 py-3 rounded-lg font-bold text-xs uppercase tracking-widest hover:bg-gray-200 transition">Log</button>
-            </div>
-            <input type="hidden" id="comms-lead-id">
-        </div>
-    </div>
-
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, collection, addDoc, onSnapshot, query, updateDoc, doc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-
-        let db = null;
-        let auth = null;
-        let appId = typeof __app_id !== 'undefined' ? __app_id : 'vanguard-app-local';
-        let isFirebaseReady = false;
-
-        async function initFirebase() {
-            try {
-                if (typeof __firebase_config === 'undefined') return;
-                const firebaseConfig = JSON.parse(__firebase_config);
-                const app = initializeApp(firebaseConfig);
-                auth = getAuth(app);
-                db = getFirestore(app);
-
-                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                    await signInWithCustomToken(auth, __initial_auth_token);
-                } else {
-                    await signInAnonymously(auth);
-                }
-                isFirebaseReady = true;
-            } catch (e) {
-                console.error("Firebase Init Error:", e);
-            }
-        }
-
-        initFirebase();
-
-        // Save incoming leads to DB
-        window.saveLeadToDatabase = async function(formDataObj) {
-            if (!isFirebaseReady || !db || !auth.currentUser) return;
-            try {
-                const leadsRef = collection(db, 'artifacts', appId, 'public', 'data', 'leads');
-                await addDoc(leadsRef, {
-                    ...formDataObj,
-                    status: 'New',
-                    createdAt: new Date().toISOString()
-                });
-            } catch (e) {
-                console.error("Error saving lead:", e);
-            }
-        };
-
-        // CRM Login
-        window.attemptCrmLogin = function() {
-            const code = document.getElementById('crm-passcode').value;
-            const errorMsg = document.getElementById('crm-error');
-            
-            // Default Passcode: VANGUARD
-            if (code.toUpperCase() === 'VANGUARD') {
-                document.getElementById('crm-login').classList.add('hidden');
-                document.getElementById('crm-dashboard').classList.remove('hidden');
-                errorMsg.classList.add('hidden');
-                loadLeads();
-            } else {
-                errorMsg.classList.remove('hidden');
-            }
-        };
-
-        // Load CRM Leads
-        function loadLeads() {
-            if (!isFirebaseReady || !db || !auth.currentUser) {
-                document.getElementById('crm-leads-table').innerHTML = '<tr><td colspan="5" class="p-6 text-center text-gray-500">Connecting to secure database...</td></tr>';
-                // Retry if auth is still resolving
-                setTimeout(loadLeads, 1000);
-                return;
-            }
-
-            const leadsRef = collection(db, 'artifacts', appId, 'public', 'data', 'leads');
-            const q = query(leadsRef);
-
-            onSnapshot(q, (snapshot) => {
-                let leads = [];
-                snapshot.forEach(doc => {
-                    leads.push({ id: doc.id, ...doc.data() });
-                });
-                
-                // Sort newest first
-                leads.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-                renderLeads(leads);
-            }, (error) => {
-                console.error("Snapshot error:", error);
-            });
-        }
-
-        // Cycle through Lead Statuses
-        window.updateLeadStatus = async function(id, currentStatus) {
-            if (!isFirebaseReady || !db || !auth.currentUser) return;
-            
-            let nextStatus = 'Contacted';
-            if (currentStatus === 'New') nextStatus = 'Contacted';
-            else if (currentStatus === 'Contacted') nextStatus = 'Quoted';
-            else if (currentStatus === 'Quoted') nextStatus = 'Won';
-            else return; // Max state
-            
-            try {
-                const leadDoc = doc(db, 'artifacts', appId, 'public', 'data', 'leads', id);
-                await updateDoc(leadDoc, { status: nextStatus });
-            } catch (e) {
-                console.error("Update error:", e);
-            }
-        }
-
-        window.importCSV = function(event) {
-            const file = event.target.files[0];
-            if (!file) return;
-            
-            const btnLabel = document.querySelector('label[for="csv-upload"]');
-            const originalText = btnLabel.innerText;
-            btnLabel.innerText = "IMPORTING...";
-
-            Papa.parse(file, {
-                header: true,
-                skipEmptyLines: true,
-                complete: async function(results) {
-                    if (!isFirebaseReady || !db || !auth.currentUser) {
-                        alert("Database not connected yet. Please try again.");
-                        btnLabel.innerText = originalText;
-                        return;
-                    }
-                    
-                    const leadsRef = collection(db, 'artifacts', appId, 'public', 'data', 'leads');
-                    let count = 0;
-                    
-                    for (const row of results.data) {
-                        const name = row['Name'] || row['Full Name'] || row['Contact Name'] || row['Contractor Name'] || 'Unknown Lead';
-                        if (name === 'Unknown Lead' && !row['Phone'] && !row['Email']) continue; // Skip blank rows
-
-                        const leadData = {
-                            name: name,
-                            phone: row['Phone'] || row['Phone Number'] || row['Cell'] || '',
-                            email: row['Email'] || row['Email Address'] || '',
-                            project_type: row['Project Type'] || row['Trade'] || row['Category'] || 'Imported List',
-                            location: row['Location'] || row['City'] || row['Address'] || '',
-                            description: row['Description'] || row['Notes'] || 'Imported via CSV Google Sheet.',
-                            status: 'New',
-                            createdAt: new Date().toISOString(),
-                            source: 'CSV Import'
-                        };
-                        
-                        try {
-                            await addDoc(leadsRef, leadData);
-                            count++;
-                        } catch (e) {
-                            console.error("Error importing row:", e);
-                        }
-                    }
-                    alert(`Successfully imported ${count} leads from spreadsheet!`);
-                    event.target.value = ''; // Reset input
-                    btnLabel.innerText = originalText;
-                }
-            });
-        };
-
-        window.openComms = function(id, name, phone) {
-            document.getElementById('comms-name').innerText = name + ' (' + (phone || 'No Phone') + ')';
-            document.getElementById('comms-lead-id').value = id;
-            document.getElementById('comms-modal').classList.add('active');
-            window.loadCommNotes(id);
-        };
-
-        window.closeComms = function() {
-            document.getElementById('comms-modal').classList.remove('active');
-        };
-
-        window.saveCommNote = async function() {
-            const text = document.getElementById('comms-input').value.trim();
-            const leadId = document.getElementById('comms-lead-id').value;
-            if (!text || !leadId || !isFirebaseReady) return;
-
-            try {
-                // Save notes directly to a sub-collection for this specific lead
-                const notesRef = collection(db, 'artifacts', appId, 'public', 'data', 'leads', leadId, 'notes');
-                await addDoc(notesRef, {
-                    text: text,
-                    timestamp: new Date().toISOString()
-                });
-                document.getElementById('comms-input').value = '';
-            } catch (e) {
-                console.error("Notes error:", e);
-            }
-        };
-
-        let currentNotesUnsubscribe = null;
-        window.loadCommNotes = function(leadId) {
-            // Unsubscribe from previous lead's notes if switching
-            if (currentNotesUnsubscribe) {
-                currentNotesUnsubscribe();
-            }
-            
-            const notesRef = collection(db, 'artifacts', appId, 'public', 'data', 'leads', leadId, 'notes');
-            currentNotesUnsubscribe = onSnapshot(query(notesRef), (snapshot) => {
-                let notes = [];
-                snapshot.forEach(doc => notes.push(doc.data()));
-                
-                // Sort oldest to newest (like text messages)
-                notes.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
-                
-                const logEl = document.getElementById('comms-log');
-                if (notes.length === 0) {
-                    logEl.innerHTML = '<p class="text-xs text-gray-500 text-center mt-10 uppercase tracking-widest">No communications logged yet. Type below to add notes.</p>';
-                    return;
-                }
-                
-                logEl.innerHTML = notes.map(note => `
-                    <div class="bg-gray-700 p-3 rounded-xl self-end max-w-[85%] text-left shadow-md">
-                        <p class="text-sm text-white">${note.text}</p>
-                        <p class="text-[9px] text-gray-400 mt-2 uppercase tracking-widest">${new Date(note.timestamp).toLocaleString()}</p>
-                    </div>
-                `).join('');
-                
-                // Auto-scroll to bottom
-                logEl.scrollTop = logEl.scrollHeight;
-            }, (error) => console.error("Notes snapshot error:", error));
-        };
-
-        function renderLeads(leads) {
-            const tbody = document.getElementById('crm-leads-table');
-            if (leads.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="5" class="p-6 text-center text-gray-500">No projects currently in pipeline.</td></tr>';
-                return;
-            }
-
-            tbody.innerHTML = leads.map(lead => {
-                const date = new Date(lead.createdAt).toLocaleDateString();
-                
-                let statusColor = 'text-gray-400 bg-gray-800';
-                if (lead.status === 'New') statusColor = 'text-red-400 bg-red-400/10 border border-red-400/20';
-                if (lead.status === 'Contacted') statusColor = 'text-blue-400 bg-blue-400/10 border border-blue-400/20';
-                if (lead.status === 'Quoted') statusColor = 'text-yellow-400 bg-yellow-400/10 border border-yellow-400/20';
-                if (lead.status === 'Won') statusColor = 'text-green-400 bg-green-400/10 border border-green-400/20';
-
-                return `
-                    <tr class="hover:bg-gray-700/30 transition border-t border-gray-700">
-                        <td class="px-6 py-4 whitespace-nowrap text-xs">${date}</td>
-                        <td class="px-6 py-4">
-                            <div class="font-bold text-white text-base">${lead.name}</div>
-                            <div class="text-xs text-gray-500 mt-1">${lead.email}</div>
-                            <div class="text-[10px] text-gray-400 uppercase tracking-widest mt-1">${lead.location || 'N/A'}</div>
-                        </td>
-                        <td class="px-6 py-4">
-                            <div class="text-sm font-semibold text-gray-300">${lead.project_type}</div>
-                            <div class="text-xs text-gray-500 mt-1">${lead.timeline}</div>
-                            <div class="text-[10px] text-gray-400 mt-2 truncate max-w-[200px]" title="${lead.description}">${lead.description || 'No notes provided'}</div>
-                        </td>
-                        <td class="px-6 py-4">
-                            <button onclick="window.updateLeadStatus('${lead.id}', '${lead.status || 'New'}')" class="px-3 py-1.5 rounded text-[10px] font-bold uppercase tracking-widest ${statusColor} hover:opacity-80 transition cursor-pointer">
-                                ${lead.status || 'New'}
-                            </button>
-                        </td>
-                        <td class="px-6 py-4 text-right whitespace-nowrap">
-                            <button onclick="window.openComms('${lead.id}', '${lead.name ? lead.name.replace(/'/g, "\\'") : 'Unknown'}', '${lead.phone || ''}')" class="inline-block px-5 py-2.5 bg-white hover:bg-gray-200 text-black rounded-lg text-[10px] font-bold uppercase tracking-widest transition">Comms Hub</button>
-                        </td>
-                    </tr>
-                `;
-            }).join('');
-        }
-    </script>
-
     <script>
         // SPA Routing Logic
         function navigate(viewId) {
@@ -998,333 +614,90 @@
             }
         }
 
-        // Handle Secret URL Routing for CRM
-        function handleHashRouting() {
-            const hash = window.location.hash;
-            const navElement = document.querySelector('nav');
-            const footerElement = document.querySelector('footer');
-            const quoteSection = document.getElementById('quote-section');
-
-            if (hash === '#portal' || hash === '#crm') {
-                navigate('crm');
-                // Hide main site elements to create an isolated app feel
-                if (navElement) navElement.style.display = 'none';
-                if (footerElement) footerElement.style.display = 'none';
-                if (quoteSection) quoteSection.style.display = 'none';
-            } else {
-                // Restore main site elements
-                if (navElement) navElement.style.display = '';
-                if (footerElement) footerElement.style.display = '';
-                if (quoteSection) quoteSection.style.display = '';
-                
-                // If they hit back from the portal, send them home
-                if(document.getElementById('view-crm').classList.contains('active')) {
-                    navigate('home');
-                }
-            }
-        }
-
-        window.addEventListener('hashchange', handleHashRouting);
-        window.addEventListener('DOMContentLoaded', handleHashRouting);
-        handleHashRouting(); // Run once immediately
-
         function scrollToQuote() {
-            document.getElementById('quote-section').scrollIntoView({ behavior: 'smooth' });
-            document.getElementById('mobile-menu').classList.add('hidden');
+            const quoteSection = document.getElementById('quote-section');
+            if(quoteSection) {
+                quoteSection.scrollIntoView({ behavior: 'smooth' });
+            }
+            const mobileMenu = document.getElementById('mobile-menu');
+            if(mobileMenu) {
+                mobileMenu.classList.add('hidden');
+            }
         }
 
         // Mobile Menu Toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
+        const mobileMenuBtn = document.getElementById('mobile-menu-button');
+        if(mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', function() {
+                const mobileMenu = document.getElementById('mobile-menu');
+                if(mobileMenu) mobileMenu.classList.toggle('hidden');
+            });
+        }
 
         // Custom Modal Logic
         function showModal() {
-            document.getElementById('success-modal').classList.add('active');
+            const modal = document.getElementById('success-modal');
+            if(modal) modal.classList.add('active');
         }
-
+        
         function closeModal() {
-            document.getElementById('success-modal').classList.remove('active');
-        }
-
-        // Form Handling - Wired to Web3Forms and Database
-        document.getElementById('leadForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const btn = this.querySelector('button');
-            const originalText = btn.innerText;
-            btn.innerText = "TRANSMITTING...";
-            btn.disabled = true;
-
-            const formData = new FormData(this);
-            const formDataObj = Object.fromEntries(formData.entries());
-
-            try {
-                // 1. Save to internal database for CRM
-                if (window.saveLeadToDatabase) {
-                    await window.saveLeadToDatabase(formDataObj);
-                }
-
-                // 2. Send email notification via Web3Forms
-                const response = await fetch('https://api.web3forms.com/submit', {
-                    method: 'POST',
-                    body: formData
-                });
-                
-                if (response.ok) {
-                    showModal();
-                    this.reset();
-                } else {
-                    alert("System Error: Could not send transmission. Please try again.");
-                }
-            } catch (error) {
-                alert("Network Error: Please check your internet connection.");
-            } finally {
-                btn.innerText = originalText;
-                btn.disabled = false;
-            }
-        });
-
-        const chatInput = document.getElementById('chat-input');
-        const sendBtn = document.getElementById('send-chat');
-        const chatHistoryEl = document.getElementById('chat-history');
-        
-        const apiKey = ""; // Canvas auto-injects
-        const systemPrompt = "You are a seasoned, authoritative Project Manager for Pacific Vanguard Contracting in Metro Vancouver. Your tone is professional, no-nonsense, confident, and highly competent. Answer questions about home services, renovations, painting, commercial contracting, and strata maintenance in BC. Emphasize our fixed-bid pricing, $2M liability insurance, WorkSafeBC compliance, and flawless project management. Do not give exact price quotes. Keep answers concise (1-2 short paragraphs max). If appropriate, encourage the user to fill out the 'Free Quote' form at the bottom of the page to initiate their project.";
-        
-        let conversationHistory = [];
-
-        function appendMessage(role, text) {
-            const wrapper = document.createElement('div');
-            wrapper.className = role === 'user' ? 'flex flex-col items-end' : 'flex flex-col items-start';
-            
-            const label = document.createElement('span');
-            label.className = 'text-[10px] text-gray-500 font-bold mb-1 uppercase tracking-widest';
-            label.innerText = role === 'user' ? 'Client' : 'Vanguard AI';
-            
-            const bubble = document.createElement('div');
-            bubble.className = role === 'user' 
-                ? 'bg-white text-black px-5 py-4 rounded-l-2xl rounded-tr-2xl max-w-[85%] border border-gray-200 shadow-md' 
-                : 'bg-gray-800 text-gray-200 px-5 py-4 rounded-r-2xl rounded-bl-2xl max-w-[85%] border border-gray-700 leading-relaxed shadow-md';
-            
-            bubble.innerHTML = text.replace(/\n/g, '<br>');
-            
-            wrapper.appendChild(label);
-            wrapper.appendChild(bubble);
-            
-            chatHistoryEl.appendChild(wrapper);
-            chatHistoryEl.scrollTop = chatHistoryEl.scrollHeight;
-        }
-
-        async function generateAIResponse(userText, retryCount = 0) {
-            if (!apiKey) {
-                return "AI System temporarily offline for maintenance. Please use the form below to contact a human manager.";
-            }
-
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
-            conversationHistory.push({ role: "user", parts: [{ text: userText }] });
-
-            const payload = {
-                contents: conversationHistory,
-                systemInstruction: { parts: [{ text: systemPrompt }] },
-            };
-
-            try {
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-
-                if (response.status === 429 && retryCount < 4) {
-                    await new Promise(res => setTimeout(res, Math.pow(2, retryCount) * 1000));
-                    return generateAIResponse(userText, retryCount + 1);
-                }
-
-                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-
-                const result = await response.json();
-                const candidate = result.candidates?.[0];
-                
-                if (candidate && candidate.content?.parts?.[0]?.text) {
-                    const aiText = candidate.content.parts[0].text;
-                    conversationHistory.push({ role: "model", parts: [{ text: aiText }] });
-                    return aiText;
-                } else {
-                    throw new Error("Unexpected response structure");
-                }
-            } catch (error) {
-                conversationHistory.pop(); 
-                return "System Error: Unable to process request at this time. Please use the qualification form below to reach a human manager.";
+            const modal = document.getElementById('success-modal');
+            if(modal) {
+                modal.classList.remove('active');
+                // Reset text back to default in case it was changed by the large file warning
+                document.querySelector('#success-modal p').innerText = "Your project details have been securely logged. A Vanguard project manager will contact you within 24 hours.";
             }
         }
 
-        async function handleChatSubmit() {
-            const text = chatInput.value.trim();
-            if (!text) return;
+        // Form Handling - Wired to Web3Forms with Large File Bypass
+        const leadForm = document.getElementById('leadForm');
+        if (leadForm) {
+            leadForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const btn = this.querySelector('button');
+                const originalText = btn.innerText;
+                btn.innerText = "TRANSMITTING...";
+                btn.disabled = true;
 
-            appendMessage('user', text);
-            chatInput.value = '';
-            
-            sendBtn.innerText = '...';
-            sendBtn.disabled = true;
-            chatInput.disabled = true;
-
-            const aiResponse = await generateAIResponse(text);
-            
-            appendMessage('model', aiResponse);
-            
-            sendBtn.innerText = 'SEND';
-            sendBtn.disabled = false;
-            chatInput.disabled = false;
-            chatInput.focus();
-        }
-
-        if (sendBtn) {
-            sendBtn.addEventListener('click', handleChatSubmit);
-            chatInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') handleChatSubmit();
-            });
-        }
-
-        const visionPrompt = document.getElementById('vision-prompt');
-        const generateBtn = document.getElementById('generate-vision');
-        const visionPlaceholder = document.getElementById('vision-placeholder');
-        const visionLoader = document.getElementById('vision-loader');
-        const visionImage = document.getElementById('vision-image');
-        
-        const currentUpload = document.getElementById('current-upload');
-        const currentPreview = document.getElementById('current-preview');
-        const currentOverlay = document.getElementById('current-overlay');
-        const currentPlaceholderText = document.getElementById('current-placeholder');
-        
-        const referenceUpload = document.getElementById('reference-upload');
-        const referencePreview = document.getElementById('reference-preview');
-        const referenceOverlay = document.getElementById('reference-overlay');
-        const referencePlaceholderText = document.getElementById('reference-placeholder');
-        
-        let currentBase64 = null;
-        let currentMimeType = null;
-        let referenceBase64 = null;
-        let referenceMimeType = null;
-
-        if (currentUpload) {
-            currentUpload.addEventListener('change', (e) => {
-                const file = e.target.files[0];
-                if (!file) return;
-                currentMimeType = file.type;
-                const reader = new FileReader();
-                reader.onload = (event) => {
-                    const dataUrl = event.target.result;
-                    currentBase64 = dataUrl.split(',')[1];
-                    currentPreview.src = dataUrl;
-                    currentPreview.classList.remove('hidden');
-                    currentOverlay.classList.remove('hidden');
-                    currentPlaceholderText.classList.add('opacity-0');
-                };
-                reader.readAsDataURL(file);
-            });
-        }
-
-        if (referenceUpload) {
-            referenceUpload.addEventListener('change', (e) => {
-                const file = e.target.files[0];
-                if (!file) return;
-                referenceMimeType = file.type;
-                const reader = new FileReader();
-                reader.onload = (event) => {
-                    const dataUrl = event.target.result;
-                    referenceBase64 = dataUrl.split(',')[1];
-                    referencePreview.src = dataUrl;
-                    referencePreview.classList.remove('hidden');
-                    referenceOverlay.classList.remove('hidden');
-                    referencePlaceholderText.classList.add('opacity-0');
-                };
-                reader.readAsDataURL(file);
-            });
-        }
-
-        if (generateBtn) {
-            generateBtn.addEventListener('click', async () => {
-                if (!apiKey) {
-                    visionPlaceholder.innerText = "AI System temporarily offline for maintenance.";
-                    visionPlaceholder.classList.remove('hidden');
-                    return;
+                const formData = new FormData(this);
+                
+                // 1. Check file sizes (Web3Forms has a strict 5MB limit on free tier)
+                let totalFileSize = 0;
+                for (let [key, value] of formData.entries()) {
+                    if (value instanceof File && value.size > 0) {
+                        totalFileSize += value.size;
+                    }
                 }
 
-                const promptText = visionPrompt.value.trim();
-                if (!promptText && !currentBase64 && !referenceBase64) return;
-
-                generateBtn.disabled = true;
-                visionPrompt.disabled = true;
-                currentUpload.disabled = true;
-                referenceUpload.disabled = true;
-                
-                visionPlaceholder.classList.add('hidden');
-                visionImage.classList.add('hidden');
-                visionLoader.classList.remove('hidden');
-                generateBtn.innerText = 'RENDERING...';
+                // 2. Large File Bypass Logic
+                let filesDropped = false;
+                if (totalFileSize > 5 * 1024 * 1024) { 
+                    formData.delete('current_space');
+                    formData.delete('inspiration');
+                    formData.append('SYSTEM_NOTE', 'WARNING: Client tried to upload videos/photos over 5MB. Files were bypassed to save the lead. Text/email them your Google Drive link to request the photos.');
+                    filesDropped = true;
+                }
 
                 try {
-                    const visionApiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-image-preview:generateContent?key=${apiKey}`;
-                    
-                    const parts = [];
-                    let enhancedPrompt = "";
-
-                    if (currentBase64 && referenceBase64) {
-                        enhancedPrompt = `Act as an elite architectural renderer. I am providing two images. Image 1 is the current space. Image 2 is the style inspiration. Redesign the current space (Image 1) so that its layout incorporates the aesthetic, materials, and lighting of the style inspiration (Image 2). Additional client instructions: ${promptText || "Blend these styles flawlessly."}. Maintain photorealism.`;
-                        parts.push({ text: enhancedPrompt });
-                        parts.push({ inlineData: { mimeType: currentMimeType, data: currentBase64 } });
-                        parts.push({ inlineData: { mimeType: referenceMimeType, data: referenceBase64 } });
-                    } else if (currentBase64) {
-                        enhancedPrompt = `Act as an elite architectural renderer. Modify and redesign the provided image of the current space based strictly on these instructions: ${promptText || "Redesign this space to look modern, high-end, and highly finished."}. Maintain the structural integrity but apply a highly photorealistic, modern construction aesthetic.`;
-                        parts.push({ text: enhancedPrompt });
-                        parts.push({ inlineData: { mimeType: currentMimeType, data: currentBase64 } });
-                    } else if (referenceBase64) {
-                        enhancedPrompt = `Act as an elite architectural renderer. Create a highly realistic, professional architectural photography rendering inspired by the provided reference image. Follow these instructions: ${promptText || "Use the provided image as an aesthetic reference for a flawless new architectural design."}.`;
-                        parts.push({ text: enhancedPrompt });
-                        parts.push({ inlineData: { mimeType: referenceMimeType, data: referenceBase64 } });
-                    } else {
-                        enhancedPrompt = `Create a highly realistic, professional architectural photography rendering of: ${promptText}. High end residential or commercial construction context. Clean lines, modern aesthetic, highly detailed, photorealistic lighting, Canon EOS R5.`;
-                        parts.push({ text: enhancedPrompt });
-                    }
-
-                    const payload = {
-                        contents: [{
-                            role: 'user',
-                            parts: parts
-                        }],
-                        generationConfig: { responseModalities: ['IMAGE'], imageConfig: { aspectRatio: "16:9" } }
-                    };
-
-                    const response = await fetch(visionApiUrl, {
+                    const response = await fetch('https://api.web3forms.com/submit', {
                         method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
+                        body: formData
                     });
-
-                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-
-                    const result = await response.json();
-                    const part = result?.candidates?.[0]?.content?.parts?.find(p => p.inlineData);
                     
-                    if (part && part.inlineData) {
-                        const imageUrl = `data:${part.inlineData.mimeType};base64,${part.inlineData.data}`;
-                        visionImage.src = imageUrl;
-                        visionImage.classList.remove('hidden');
+                    if (response.ok) {
+                        if (filesDropped) {
+                            document.querySelector('#success-modal p').innerText = "Your project details were logged successfully! Because your media files are large, your Project Manager will text you a secure link to upload your videos and photos shortly.";
+                        }
+                        showModal();
+                        this.reset();
                     } else {
-                        throw new Error('No image data returned from API');
+                        alert("System Error: Web3Forms configuration issue. Please try submitting without files.");
                     }
                 } catch (error) {
-                    console.error('Vision API Error:', error);
-                    visionPlaceholder.innerText = "Error generating concept. Please adjust your prompt and try again.";
-                    visionPlaceholder.classList.remove('hidden');
+                    alert("Network Error: Please check your internet connection.");
                 } finally {
-                    visionLoader.classList.add('hidden');
-                    generateBtn.disabled = false;
-                    visionPrompt.disabled = false;
-                    currentUpload.disabled = false;
-                    referenceUpload.disabled = false;
-                    generateBtn.innerText = 'RENDER CONCEPT';
+                    btn.innerText = originalText;
+                    btn.disabled = false;
                 }
             });
         }
